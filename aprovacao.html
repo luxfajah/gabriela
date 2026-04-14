@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aprovação de Conteúdo — Gabriela Saueressig · Abril 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --bg:         #F8F6F4;
+      --white:      #FFFFFF;
+      --border:     #E8E3DE;
+      --border-2:   #D5CEC8;
+      --text:       #1C1817;
+      --text-2:     #4A4440;
+      --muted:      #9A928A;
+      --green:      #2E4F3E;
+      --green-mid:  #3D6B54;
+      --green-lt:   #EBF1ED;
+      --wine:       #7A1E2C;
+      --wine-lt:    #F5E8EA;
+      --neutral:    #EAE7E4;
+      --neutral-2:  #D8D4D0;
+      --gold:       #C4A882;
+      --beige:      #F2EDE8;
+      --note-bg:    #FDFAF4;
+      --note-line:  #EDE8E0;
+      --radius:     20px;
+      --radius-sm:  12px;
+      --radius-pill:50px;
+      --shadow:     0 2px 16px rgba(28,24,23,.07);
+      --shadow-lg:  0 8px 40px rgba(28,24,23,.11);
+      --shadow-xl:  0 20px 80px rgba(28,24,23,.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('pexels-didsss-19856128.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(2px) saturate(1.1);
+      transform: scale(1.04);
+    }
+    .hero-blob { position: absolute; border-radius: 50%; filter: blur(90px); }
+    .hb1 { width:600px;height:600px; background:radial-gradient(circle,rgba(122,30,44,.6),transparent 70%); top:-100px;right:-100px; opacity:.55; }
+    .hb2 { width:500px;height:500px; background:radial-gradient(circle,rgba(46,79,62,.45),transparent 70%); bottom:-80px;left:-80px; opacity:.45; }
+    .hb3 { width:300px;height:300px; background:radial-gradient(circle,rgba(196,168,130,.6),transparent 70%); top:35%;left:40%; opacity:.4; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(165deg,rgba(20,8,8,.72) 0%,rgba(70,30,18,.45) 45%,rgba(30,20,15,.68) 100%);
+    }
+    .hero-grain {
+      position: absolute; inset: 0; opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 60px 24px; max-width: 660px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.12); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-pill);
+      padding: 7px 18px; font-size: 11px; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.85);
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+      animation: pls 2s infinite;
+    }
+    @keyframes pls { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6.5vw, 72px);
+      font-weight: 400; color: #fff;
+      line-height: 1.06; letter-spacing: -.02em;
+    }
+    .hero-name em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      margin-top: 14px; font-size: 13px; font-weight: 400;
+      color: rgba(255,255,255,.6); letter-spacing: .04em;
+    }
+    .hero-divider {
+      width: 44px; height: 1px; background: var(--gold);
+      margin: 26px auto; opacity: .55;
+    }
+    .hero-tagline {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(16px, 2.4vw, 21px);
+      color: rgba(255,255,255,.88); line-height: 1.45; font-weight: 400;
+    }
+    .hero-progress {
+      display: inline-flex; align-items: center; gap: 14px;
+      margin-top: 34px;
+      background: rgba(255,255,255,.1); backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius-pill);
+      padding: 12px 24px;
+    }
+    .pb-wrap { width: 90px; height: 3px; background: rgba(255,255,255,.2); border-radius: 3px; overflow: hidden; }
+    .pb-fill  { height: 100%; border-radius: 3px; background: linear-gradient(90deg,var(--gold),#e8c89a); transition: width .6s ease; }
+    .pb-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.82); white-space: nowrap; }
+    .pb-label strong { color: var(--gold); }
+    .hero-scroll {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: rgba(255,255,255,.35); font-size: 9px; letter-spacing: .12em; text-transform: uppercase;
+      cursor: pointer;
+    }
+    .scroll-line {
+      width: 1px; height: 36px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.35), transparent);
+      animation: sline 2.2s infinite;
+    }
+    @keyframes sline { 0%{transform:scaleY(0);transform-origin:top} 55%{transform:scaleY(1);transform-origin:top} 100%{transform:scaleY(1);opacity:0} }
+
+    /* ─── LAYOUT WRAPPER ────────────────────────────────── */
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    @media(max-width:600px){ .wrap { padding: 0 18px; } }
+
+    /* ─── SECTION HEADER ────────────────────────────────── */
+    .sec-header {
+      padding: 72px 0 36px;
+      display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .sec-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 500; letter-spacing: -.01em; line-height: 1.1;
+    }
+    .sec-title em { font-style: italic; color: var(--green); }
+
+    /* ─── OVERVIEW GRID ─────────────────────────────────── */
+    .ov-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      margin-bottom: 72px;
+    }
+    @media(max-width:900px){ .ov-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:500px){ .ov-grid { grid-template-columns: 1fr; } }
+
+    .ov-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px;
+      cursor: pointer; transition: box-shadow .25s, transform .25s, border-color .25s;
+      position: relative;
+    }
+    .ov-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .ov-card.active-post { border-color: var(--green); box-shadow: 0 0 0 2px rgba(46,79,62,.14), var(--shadow-lg); }
+
+    /* Mini image preview */
+    .mini-thumb {
+      width: 100%; aspect-ratio: 9/11; border-radius: 10px;
+      overflow: hidden; margin-bottom: 12px; position: relative;
+      background: var(--beige);
+    }
+    .mini-track {
+      display: flex; height: 100%; transition: transform .42s cubic-bezier(.4,0,.2,1);
+    }
+    .mini-slide {
+      min-width: 100%; height: 100%;
+    }
+    .mini-slide img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .mini-dots {
+      position: absolute; bottom: 6px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 4px;
+    }
+    .mini-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,.45); transition: background .2s;
+    }
+    .mini-dot.active { background: rgba(255,255,255,.95); }
+
+    /* video badge on thumb */
+    .thumb-video-badge {
+      position: absolute; top: 8px; right: 8px;
+      background: rgba(0,0,0,.5); backdrop-filter: blur(6px);
+      border-radius: var(--radius-pill); padding: 3px 10px;
+      font-size: 10px; font-weight: 600; color: rgba(255,255,255,.9);
+      display: flex; align-items: center; gap: 4px;
+    }
+
+    .ov-num   { font-size: 10px; font-weight: 700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+    .ov-title { font-family:'Playfair Display',serif; font-size:14px; font-weight:500; line-height:1.25; margin-bottom:11px; }
+
+    .ov-footer { display:flex; align-items:center; justify-content:space-between; gap:6px; }
+
+    /* Status pill */
+    .sp {
+      display:inline-flex; align-items:center; gap:4px;
+      padding: 3px 9px; border-radius: var(--radius-pill);
+      font-size: 9px; font-weight: 700; letter-spacing:.05em; text-transform:uppercase;
+      white-space: nowrap; transition: all .3s;
+    }
+    .sp .pip { width:5px; height:5px; border-radius:50%; }
+    .sp-none     { background:var(--beige);    color:var(--muted); }
+    .sp-none .pip     { background:var(--neutral-2); }
+    .sp-approved { background:var(--green-lt); color:var(--green); }
+    .sp-approved .pip { background:var(--green); }
+    .sp-rejected { background:var(--wine-lt);  color:var(--wine); }
+    .sp-rejected .pip { background:var(--wine); }
+    .sp-pending  { background:#FFF8E8;          color:#8A6A00; }
+    .sp-pending .pip  { background:#D4A017; }
+
+    .btn-rev {
+      background: var(--green); color: #fff;
+      border: none; border-radius: var(--radius-pill);
+      padding: 5px 12px; font-size: 10px; font-weight: 600;
+      cursor: pointer; transition: background .2s, transform .15s;
+      font-family: 'Inter', sans-serif; white-space: nowrap;
+    }
+    .btn-rev:hover { background: var(--green-mid); transform: scale(.96); }
+
+    .btn-clear {
+      background: transparent; color: var(--muted);
+      border: 1px solid var(--border-2); border-radius: var(--radius-pill);
+      padding: 7px 16px; font-size: 11px; font-weight: 500;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: color .2s, border-color .2s, background .2s;
+      white-space: nowrap; align-self: flex-end;
+    }
+    .btn-clear:hover { color: var(--wine); border-color: var(--wine); background: var(--wine-lt); }
+
+    /* ─── FUNNEL BADGE ──────────────────────────────────── */
+    .funnel-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 10px; border-radius: var(--radius-pill);
+      font-size: 9px; font-weight: 700; letter-spacing:.07em; text-transform:uppercase;
+    }
+    .fb-topo  { background:rgba(180,90,10,.1);  color:#B45A0A; }
+    .fb-meio  { background:rgba(46,79,62,.1);   color:var(--green); }
+    .fb-fundo { background:rgba(122,30,44,.1);  color:var(--wine); }
+
+    /* ─── DETAIL POST CARD ──────────────────────────────── */
+    .posts-stack { display:flex; flex-direction:column; gap:56px; padding-bottom:72px; }
+
+    .post-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 24px; overflow: hidden; box-shadow: var(--shadow);
+      transition: border-color .4s, box-shadow .4s;
+      scroll-margin-top: 90px;
+    }
+    .post-card[data-status="approved"] { border-color:rgba(46,79,62,.5);  box-shadow:0 0 0 1px rgba(46,79,62,.14), var(--shadow-lg); }
+    .post-card[data-status="rejected"] { border-color:rgba(122,30,44,.5); box-shadow:0 0 0 1px rgba(122,30,44,.12), var(--shadow-lg); }
+    .post-card[data-status="pending"]  { opacity:.82; }
+
+    @keyframes highlight {
+      0%   { box-shadow:0 0 0 5px rgba(196,168,130,.45), var(--shadow-lg); }
+      100% { box-shadow:var(--shadow); }
+    }
+    .post-card.flash { animation: highlight 1s ease forwards; }
+
+    .post-stripe {
+      height: 3px; background: var(--border); transition: background .4s;
+    }
+    .post-card[data-status="approved"] .post-stripe { background:linear-gradient(90deg,var(--green),var(--green-mid)); }
+    .post-card[data-status="rejected"] .post-stripe { background:linear-gradient(90deg,var(--wine),#a03040); }
+    .post-card[data-status="pending"]  .post-stripe { background:linear-gradient(90deg,#D4A017,#E8C040); }
+
+    .post-inner {
+      display: grid; grid-template-columns: 340px 1fr;
+    }
+    @media(max-width:880px){ .post-inner { grid-template-columns:1fr; } }
+
+    /* ── Left: Visual ── */
+    .post-visual {
+      background: var(--beige);
+      border-right: 1px solid var(--border);
+      padding: 28px 24px;
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+      position: relative;
+    }
+    @media(max-width:880px){ .post-visual { border-right:none; border-bottom:1px solid var(--border); } }
+
+    /* Instagram phone frame */
+    .ig-phone {
+      width: 100%; max-width: 268px;
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+    }
+    .ig-bar {
+      display:flex; align-items:center; gap:7px;
+      padding: 9px 12px 8px; border-bottom: 1px solid #F0EDE8;
+    }
+    .ig-ava {
+      width:26px; height:26px; border-radius:50%;
+      background: linear-gradient(135deg, var(--gold), #d4a070);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Playfair Display',serif; font-size:10px; font-weight:700; color:#fff;
+      flex-shrink:0;
+    }
+    .ig-handle {
+      font-size:10px; font-weight:700; color:var(--text);
+      display:flex; align-items:center; gap:3px;
+    }
+    .ig-v {
+      width:12px; height:12px; border-radius:50%;
+      background:#3797f0;
+      display:inline-flex; align-items:center; justify-content:center;
+      font-size:6px; color:#fff; font-weight:700;
+    }
+    .ig-type {
+      margin-left:auto; font-size:9px; font-weight:600;
+      letter-spacing:.06em; text-transform:uppercase; color:var(--muted);
+    }
+
+    /* Carousel */
+    .ig-carousel { position:relative; overflow:hidden; }
+    .ig-track { display:flex; transition:transform .45s cubic-bezier(.4,0,.2,1); }
+    .ig-slide {
+      min-width:100%; position:relative;
+    }
+    .ig-slide img {
+      width:100%; display:block;
+      aspect-ratio:4/5; object-fit:cover;
+    }
+
+    /* Video slide */
+    .ig-slide.video-frame {
+      aspect-ratio: 9/16;
+      background: #0a0a0c;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ig-slide.video-frame img {
+      aspect-ratio: 9/16;
+    }
+    .video-overlay {
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(0,0,0,.18);
+    }
+    .play-btn {
+      width:48px; height:48px; border-radius:50%;
+      background:rgba(255,255,255,.22); backdrop-filter:blur(8px);
+      border:1.5px solid rgba(255,255,255,.4);
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; color:#fff;
+    }
+
+    /* Arrows & dots */
+    .ig-arrow {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:24px; height:24px; border-radius:50%;
+      background:rgba(255,255,255,.8); backdrop-filter:blur(4px);
+      border:1px solid rgba(255,255,255,.5);
+      color:var(--text); font-size:12px;
+      cursor:pointer; display:flex; align-items:center; justify-content:center;
+      z-index:3; transition:background .2s;
+      box-shadow:0 2px 8px rgba(0,0,0,.14);
+    }
+    .ig-arrow:hover { background:rgba(255,255,255,.98); }
+    .ig-arrow.prev { left:7px; }
+    .ig-arrow.next { right:7px; }
+    .ig-dots {
+      position:absolute; bottom:7px; left:0; right:0;
+      display:flex; justify-content:center; gap:4px;
+    }
+    .ig-dot {
+      width:5px; height:5px; border-radius:50%;
+      background:rgba(255,255,255,.45); cursor:pointer;
+      transition:background .2s, transform .2s;
+      box-shadow:0 1px 3px rgba(0,0,0,.2);
+    }
+    .ig-dot.active { background:rgba(255,255,255,.95); transform:scale(1.3); }
+
+    /* Slide counter */
+    .sc {
+      position:absolute; top:8px; right:8px; z-index:2;
+      background:rgba(0,0,0,.35); backdrop-filter:blur(5px);
+      border-radius:var(--radius-pill); padding:2px 8px;
+      font-size:9px; font-weight:600; color:rgba(255,255,255,.88);
+    }
+
+    /* IG caption */
+    .ig-foot { padding:9px 12px 11px; border-top:1px solid #F0EDE8; }
+    .ig-cap {
+      font-size:9px; line-height:1.5; color:#777;
+      display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    }
+    .ig-cap strong { color:var(--text); font-weight:700; }
+
+    /* ── Right: Panel ── */
+    .post-panel {
+      padding: 32px 36px;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    @media(max-width:600px){ .post-panel { padding:22px 18px; } }
+
+    .post-head {
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+    }
+    .post-eyebrow {
+      font-size:9px; font-weight:700; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:6px;
+      display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    }
+    .post-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(19px, 2.8vw, 26px);
+      font-weight:500; line-height:1.15; color:var(--text);
+    }
+    .post-title em { font-style:italic; color:var(--green); }
+
+    /* Status badge large */
+    .sb {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:6px 14px; border-radius:var(--radius-pill);
+      font-size:10px; font-weight:700; letter-spacing:.06em;
+      text-transform:uppercase; white-space:nowrap; flex-shrink:0; transition:all .3s;
+    }
+    .sb .sbp { width:6px; height:6px; border-radius:50%; }
+    .sb-none     { background:var(--beige); color:var(--muted); }
+    .sb-none .sbp     { background:var(--neutral-2); }
+    .sb-approved { background:var(--green-lt); color:var(--green); }
+    .sb-approved .sbp { background:var(--green); }
+    .sb-rejected { background:var(--wine-lt); color:var(--wine); }
+    .sb-rejected .sbp { background:var(--wine); }
+    .sb-pending  { background:#FFF8E8; color:#8A6A00; }
+    .sb-pending .sbp  { background:#D4A017; }
+
+    /* Caption block */
+    .blk-label {
+      font-size:9px; font-weight:700; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--muted); margin-bottom:8px;
+    }
+    .caption-blk {
+      background:var(--beige); border:1px solid var(--border);
+      border-radius:var(--radius-sm); padding:14px 16px;
+      font-size:12px; line-height:1.72; color:var(--text-2);
+    }
+    .caption-blk .handle { font-weight:700; color:var(--text); }
+
+    /* Cards list (for carousel/video content listing) */
+    .cards-list {
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .card-item {
+      background:var(--beige); border:1px solid var(--border);
+      border-radius:var(--radius-sm); padding:10px 14px;
+      font-size:12px; line-height:1.55; color:var(--text-2);
+    }
+    .card-item-num {
+      font-size:9px; font-weight:700; color:var(--muted);
+      letter-spacing:.08em; text-transform:uppercase; margin-bottom:3px;
+    }
+
+    /* Chips */
+    .chips { display:flex; flex-wrap:wrap; gap:7px; }
+    .chip {
+      font-size:10px; color:var(--text-2);
+      background:var(--beige); border:1px solid var(--border);
+      border-radius:var(--radius-pill); padding:4px 11px;
+    }
+
+    /* ── Comment note ── */
+    .comment-note {
+      background:var(--note-bg); border:1px solid var(--note-line);
+      border-radius:var(--radius-sm); overflow:hidden; position:relative;
+    }
+    .comment-note::before {
+      content:''; position:absolute; inset:0;
+      background-image:repeating-linear-gradient(to bottom,transparent 0px,transparent 27px,var(--note-line) 27px,var(--note-line) 28px);
+      background-position:0 44px; pointer-events:none; z-index:0;
+    }
+    .cn-header {
+      position:relative; z-index:1;
+      padding:10px 14px 7px; font-size:9px; font-weight:700;
+      color:var(--muted); letter-spacing:.1em; text-transform:uppercase;
+      border-bottom:1px solid var(--note-line);
+      background:rgba(253,250,244,.9);
+      display:flex; align-items:center; gap:5px;
+    }
+    .comments-list {
+      position:relative; z-index:1;
+      padding:8px 14px; max-height:100px; overflow-y:auto;
+      display:flex; flex-direction:column; gap:7px;
+    }
+    .comments-list::-webkit-scrollbar { width:3px; }
+    .comments-list::-webkit-scrollbar-thumb { background:var(--border-2); border-radius:4px; }
+    .c-item { font-size:11px; line-height:1.5; color:var(--text-2); }
+    .c-author {
+      font-size:10px; font-weight:700; color:var(--green);
+      display:flex; gap:5px; align-items:center; margin-bottom:2px;
+    }
+    .c-time { font-weight:400; color:var(--muted); }
+    .c-empty { font-size:11px; color:var(--muted); font-style:italic; padding:4px 0; }
+    .cn-input-row {
+      position:relative; z-index:1;
+      display:flex; gap:8px; padding:9px 14px 12px;
+      border-top:1px solid var(--note-line);
+      background:rgba(253,250,244,.9);
+    }
+    .cn-textarea {
+      flex:1; background:transparent; border:none; outline:none;
+      font-size:12px; color:var(--text); font-family:'Inter',sans-serif;
+      resize:none; line-height:1.5;
+    }
+    .cn-textarea::placeholder { color:var(--muted); font-style:italic; }
+    .btn-send {
+      background:var(--green); color:#fff; border:none;
+      border-radius:var(--radius-pill); padding:6px 14px;
+      font-size:10px; font-weight:600; cursor:pointer;
+      transition:background .2s, transform .15s; font-family:'Inter',sans-serif;
+      align-self:flex-end; white-space:nowrap;
+    }
+    .btn-send:hover { background:var(--green-mid); transform:scale(.97); }
+
+    .reject-alert {
+      display:none; align-items:center; gap:8px;
+      background:var(--wine-lt); border:1px solid rgba(122,30,44,.2);
+      border-radius:var(--radius-sm); padding:9px 13px;
+      font-size:11px; color:var(--wine);
+    }
+    .reject-alert.show { display:flex; }
+
+    /* ── Action buttons ── */
+    .actions { display:flex; gap:9px; flex-wrap:wrap; }
+    .abtn {
+      flex:1; min-width:110px; padding:13px 18px;
+      border-radius:var(--radius-pill); font-size:12px; font-weight:600;
+      letter-spacing:.02em; cursor:pointer; border:1.5px solid transparent;
+      transition:all .2s; font-family:'Inter',sans-serif;
+      display:flex; align-items:center; justify-content:center; gap:7px;
+    }
+    .abtn:active { transform:scale(.97); }
+    .btn-ap {
+      background:var(--green); color:#fff; border-color:var(--green);
+    }
+    .btn-ap:hover { background:var(--green-mid); box-shadow:0 4px 18px rgba(46,79,62,.28); }
+    .btn-ap.active { box-shadow:0 0 0 3px rgba(46,79,62,.22), 0 4px 20px rgba(46,79,62,.3); }
+    .btn-rj {
+      background:var(--wine); color:#fff; border-color:var(--wine);
+    }
+    .btn-rj:hover { background:#8f2233; box-shadow:0 4px 18px rgba(122,30,44,.28); }
+    .btn-rj.active { box-shadow:0 0 0 3px rgba(122,30,44,.2), 0 4px 20px rgba(122,30,44,.3); }
+    .btn-lt {
+      background:var(--neutral); color:var(--text); border-color:var(--neutral-2);
+    }
+    .btn-lt:hover { background:var(--neutral-2); box-shadow:0 4px 14px rgba(28,24,23,.1); }
+    .btn-lt.active { background:var(--neutral-2); box-shadow:0 0 0 3px rgba(28,24,23,.1); }
+
+    /* ─── FOOTER ────────────────────────────────────────── */
+    .footer {
+      position:relative; overflow:hidden;
+      padding:110px 24px; text-align:center; margin-top:90px;
+    }
+    .footer-bg {
+      position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse 75% 55% at 18% 50%, rgba(46,79,62,.6),transparent 55%),
+        radial-gradient(ellipse 55% 75% at 82% 38%, rgba(122,30,44,.5),transparent 55%),
+        linear-gradient(155deg, #182820 0%, #2E4F3E 40%, #7A1E2C 100%);
+    }
+    .footer-grain {
+      position:absolute; inset:0; opacity:.04;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:200px;
+    }
+    .footer-content { position:relative; z-index:1; }
+    .footer-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(38px, 6.5vw, 76px);
+      font-weight:400; color:#fff; line-height:1.06; letter-spacing:-.02em;
+    }
+    .footer-title em { font-style:italic; color:var(--gold); }
+    .footer-div { width:44px; height:1px; background:var(--gold); opacity:.5; margin:26px auto; }
+    .footer-body {
+      max-width:420px; margin:0 auto;
+      font-size:14px; line-height:1.72; color:rgba(255,255,255,.62); font-weight:300;
+    }
+    .footer-summary {
+      display:inline-flex; gap:22px; margin-top:32px;
+      background:rgba(255,255,255,.08); backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.14); border-radius:var(--radius-pill);
+      padding:13px 26px; flex-wrap:wrap; justify-content:center;
+    }
+    .fs-item { text-align:center; }
+    .fs-num {
+      font-family:'Playfair Display',serif; font-size:26px;
+      font-weight:400; line-height:1; transition:all .4s;
+    }
+    .fs-num.green  { color:#6ed9a8; }
+    .fs-num.yellow { color:#f0d060; }
+    .fs-num.wine   { color:#e8788a; }
+    .fs-lbl { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-top:4px; }
+    .footer-sig {
+      margin-top:36px; font-size:10px; font-weight:600;
+      letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.28);
+    }
+    .footer-sig strong { color:var(--gold); }
+
+    /* ─── TOAST ─────────────────────────────────────────── */
+    #toast {
+      position:fixed; bottom:26px; right:26px; z-index:9999;
+      background:var(--white); border:1px solid var(--border);
+      border-radius:var(--radius-sm); padding:13px 18px;
+      box-shadow:var(--shadow-xl); opacity:0; transform:translateY(10px);
+      transition:opacity .3s, transform .3s; pointer-events:none;
+      display:flex; align-items:center; gap:9px; max-width:290px;
+    }
+    #toast.show { opacity:1; transform:translateY(0); }
+    #toast .ti { font-size:19px; }
+    #toast .tm { font-size:12px; line-height:1.35; color:var(--text); }
+
+    /* ─── LIGHTBOX ──────────────────────────────────── */
+    .ig-phone { cursor: pointer; }
+    .ig-phone:hover .ig-carousel::after {
+      content: '⊕  Ver em tela cheia';
+      position: absolute; inset: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,.28); backdrop-filter: blur(2px);
+      color: rgba(255,255,255,.92); font-size: 12px; font-weight: 600;
+      letter-spacing: .06em; font-family: 'Inter', sans-serif;
+      border-radius: 0; pointer-events: none;
+      transition: opacity .2s;
+    }
+
+    #lightbox {
+      position: fixed; inset: 0; z-index: 99999;
+      background: rgba(10,8,8,.96);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    #lightbox.open { opacity: 1; pointer-events: all; }
+
+    .lb-backdrop {
+      position: absolute; inset: 0; cursor: zoom-out;
+    }
+
+    .lb-inner {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; height: 100%;
+      padding: 72px 80px;
+    }
+    @media(max-width:600px){ .lb-inner { padding: 60px 12px; } }
+
+    .lb-img-wrap {
+      position: relative;
+      max-height: 100%; max-width: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #lbImg {
+      max-width: min(480px, 90vw);
+      max-height: 88vh;
+      width: auto; height: auto;
+      border-radius: 16px;
+      box-shadow: 0 32px 100px rgba(0,0,0,.7);
+      object-fit: contain;
+      transition: transform .35s cubic-bezier(.4,0,.2,1), opacity .2s;
+      display: block;
+    }
+    #lbImg.switching { opacity: 0; transform: scale(.96); }
+
+    /* Arrows */
+    .lb-arrow {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,.1); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #fff; font-size: 22px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      z-index: 2; transition: background .2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .lb-arrow:hover { background: rgba(255,255,255,.22); }
+    .lb-arrow.lb-prev { left: 20px; }
+    .lb-arrow.lb-next { right: 20px; }
+    .lb-arrow:disabled { opacity: .25; cursor: default; }
+    .lb-arrow.hidden { display: none; }
+
+    /* Top bar */
+    .lb-top {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 3;
+      padding: 18px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(10,8,8,.7), transparent);
+    }
+    .lb-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px; font-style: italic; color: rgba(255,255,255,.75);
+    }
+    .lb-counter {
+      font-size: 11px; font-weight: 600; color: rgba(255,255,255,.5);
+      letter-spacing: .08em; background: rgba(255,255,255,.1);
+      padding: 4px 12px; border-radius: 20px;
+    }
+    .lb-close {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+      color: #fff; font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,.22); }
+
+    /* Filmstrip bottom */
+    .lb-filmstrip {
+      position: fixed; bottom: 20px;
+      left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 3;
+      padding: 10px 14px;
+      background: rgba(0,0,0,.35); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      max-width: 88vw; overflow-x: auto;
+    }
+    .lb-filmstrip::-webkit-scrollbar { display: none; }
+    .lb-thumb {
+      width: 50px; height: 62px; border-radius: 8px;
+      overflow: hidden; cursor: pointer; flex-shrink: 0;
+      opacity: .45; border: 2px solid transparent;
+      transition: opacity .2s, border-color .2s, transform .2s;
+    }
+    .lb-thumb:hover { opacity: .75; transform: translateY(-2px); }
+    .lb-thumb.active { opacity: 1; border-color: rgba(255,255,255,.75); transform: translateY(-2px); }
+    .lb-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* Locked action buttons */
+    .abtn.locked {
+      opacity: .22; cursor: not-allowed; pointer-events: none;
+      background: var(--neutral) !important;
+      color: var(--muted) !important;
+      border-color: var(--neutral-2) !important;
+      box-shadow: none !important;
+    }
+
+    /* ─── HERO LOGO ─────────────────────────────────── */
+    .hero-logo {
+      width: clamp(220px, 30vw, 300px); height: auto;
+      margin: 20px 0 10px;
+      filter: brightness(0) invert(1) drop-shadow(0 2px 20px rgba(0,0,0,.4));
+      animation: fadeSlideUp .9s .2s cubic-bezier(.4,0,.2,1) both;
+    }
+
+    /* ─── ENTRANCE ANIMATIONS ───────────────────────── */
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(.96); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* Hero stagger */
+    .hero-eyebrow { animation: fadeSlideDown .7s .1s cubic-bezier(.4,0,.2,1) both; }
+    .hero-name    { animation: fadeSlideUp  .8s .25s cubic-bezier(.4,0,.2,1) both; }
+    .hero-sub     { animation: fadeIn       .7s .45s ease both; }
+    .hero-divider { animation: scaleIn      .5s .55s ease both; }
+    .hero-tagline { animation: fadeSlideUp  .7s .6s  cubic-bezier(.4,0,.2,1) both; }
+    .hero-progress{ animation: fadeSlideUp  .7s .8s  cubic-bezier(.4,0,.2,1) both; }
+    .hero-scroll  { animation: fadeIn       .9s 1.1s ease both; }
+
+    /* Scroll-triggered reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s cubic-bezier(.4,0,.2,1), transform .65s cubic-bezier(.4,0,.2,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════ HERO ════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-blob hb1"></div>
+  <div class="hero-blob hb2"></div>
+  <div class="hero-blob hb3"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="dot"></span>Planejamento de conteúdo · Abril 2026</div>
+    <img src="logos/Logo Pricipal - 2.png" alt="Gabriela Saueressig" class="hero-logo"/>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">Revise, comente e aprove<br>os conteúdos abaixo</p>
+    <div class="hero-progress">
+      <div class="pb-wrap"><div class="pb-fill" id="pbFill" style="width:0%"></div></div>
+      <div class="pb-label" id="pbLabel"><strong>0</strong> de 6 aprovados</div>
+    </div>
+  </div>
+  <div class="hero-scroll" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-line"></div>Rolar
+  </div>
+</section>
+
+<!-- ════════════════════════ OVERVIEW ════════════════════════ -->
+<div class="wrap" id="overview">
+  <div class="sec-header reveal">
+    <div>
+      <div class="sec-eyebrow">Planejamento · Abril 2026</div>
+      <h2 class="sec-title">Conteúdos para <em>revisão</em></h2>
+    </div>
+    <button class="btn-clear" onclick="clearState()" title="Apagar todas as respostas salvas">
+      ↺ Limpar respostas
+    </button>
+  </div>
+  <div class="ov-grid reveal" style="transition-delay:.1s">
+
+    <!-- OV 1 -->
+    <div class="ov-card" id="ov-1" onclick="jumpTo('post-1')">
+      <div class="mini-thumb">
+        <div class="mini-track" id="mtrack-1">
+          <div class="mini-slide"><img src="posts abril/Post 1 - 1.png" alt="Post 1 slide 1"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 1 - 2.png" alt="Post 1 slide 2"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 1 - 3.png" alt="Post 1 slide 3"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 1 - 4.png" alt="Post 1 slide 4"/></div>
+        </div>
+        <div class="mini-dots" id="mdots-1"></div>
+      </div>
+      <div class="ov-num">Conteúdo 01 · 06 abr · Carrossel</div>
+      <div class="ov-title">Dor na relação</div>
+      <div class="ov-footer">
+        <div class="sp sp-none" id="sp-1"><span class="pip"></span>Aguardando</div>
+        <button class="btn-rev">Revisar →</button>
+      </div>
+    </div>
+
+    <!-- OV 2 -->
+    <div class="ov-card" id="ov-2" onclick="jumpTo('post-2')">
+      <div class="mini-thumb">
+        <div class="mini-track" id="mtrack-2">
+          <div class="mini-slide"><img src="posts abril/Post 2.png" alt="Post 2"/></div>
+        </div>
+        <div class="mini-dots" id="mdots-2"></div>
+      </div>
+      <div class="ov-num">Conteúdo 02 · 09 abr · Card único</div>
+      <div class="ov-title">Ser médica na era das soluções rápidas</div>
+      <div class="ov-footer">
+        <div class="sp sp-none" id="sp-2"><span class="pip"></span>Aguardando</div>
+        <button class="btn-rev">Revisar →</button>
+      </div>
+    </div>
+
+    <!-- OV 3 -->
+    <div class="ov-card" id="ov-3" onclick="jumpTo('post-3')">
+      <div class="mini-thumb">
+        <div class="mini-track" id="mtrack-3">
+          <div class="mini-slide"><img src="posts abril/Post 3.png" alt="Post 3"/></div>
+        </div>
+        <div class="mini-dots" id="mdots-3"></div>
+      </div>
+      <div class="ov-num">Conteúdo 03 · 14 abr · Card único</div>
+      <div class="ov-title">Ser médica na era das soluções rápidas</div>
+      <div class="ov-footer">
+        <div class="sp sp-none" id="sp-3"><span class="pip"></span>Aguardando</div>
+        <button class="btn-rev">Revisar →</button>
+      </div>
+    </div>
+
+    <!-- OV 4 -->
+    <div class="ov-card" id="ov-4" onclick="jumpTo('post-4')">
+      <div class="mini-thumb">
+        <div class="mini-track" id="mtrack-4">
+          <div class="mini-slide"><img src="posts abril/Post 4 - 1.png" alt="Post 4 slide 1"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 4 - 2.png" alt="Post 4 slide 2"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 4 - 3.png" alt="Post 4 slide 3"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 4 - 4.png" alt="Post 4 slide 4"/></div>
+        </div>
+        <div class="mini-dots" id="mdots-4"></div>
+      </div>
+      <div class="ov-num">Conteúdo 04 · 16 abr · Carrossel</div>
+      <div class="ov-title">Candidíase de repetição</div>
+      <div class="ov-footer">
+        <div class="sp sp-none" id="sp-4"><span class="pip"></span>Aguardando</div>
+        <button class="btn-rev">Revisar →</button>
+      </div>
+    </div>
+
+    <!-- OV 5 -->
+    <div class="ov-card" id="ov-5" onclick="jumpTo('post-5')">
+      <div class="mini-thumb">
+        <div class="mini-track" id="mtrack-5">
+          <div class="mini-slide"><img src="posts abril/Post 5 - 1.png" alt="Post 5 slide 1"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 5 - 2.png" alt="Post 5 slide 2"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 5 - 3.png" alt="Post 5 slide 3"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 5 - 4.png" alt="Post 5 slide 4"/></div>
+          <div class="mini-slide"><img src="posts abril/Post 5 - 5.png" alt="Post 5 slide 5"/></div>
+        </div>
+        <div class="mini-dots" id="mdots-5"></div>
+      </div>
+      <div class="ov-num">Conteúdo 05 · 21 abr · Carrossel</div>
+      <div class="ov-title">Vacina do HPV após relação sexual</div>
+      <div class="ov-footer">
+        <div class="sp sp-none" id="sp-5"><span class="pip"></span>Aguardando</div>
+        <button class="btn-rev">Revisar →</button>
+      </div>
+    </div>
+
+    <!-- OV 6 -->
+    <div class="ov-card" id="ov-6" onclick="jumpTo('post-6')">
+      <div class="mini-thumb">
+        <div class="mini-track" id="mtrack-6">
+          <div class="mini-slide"><img src="posts abril/Post 6.png" alt="Post 6"/></div>
+        </div>
+        <div class="mini-dots" id="mdots-6"></div>
+      </div>
+      <div class="ov-num">Conteúdo 06 · 28 abr · Card único</div>
+      <div class="ov-title">O óbvio que precisa ser dito</div>
+      <div class="ov-footer">
+        <div class="sp sp-none" id="sp-6"><span class="pip"></span>Aguardando</div>
+        <button class="btn-rev">Revisar →</button>
+      </div>
+    </div>
+
+  </div><!-- /ov-grid -->
+</div>
+
+<!-- ════════════════════════ DETAIL POSTS ════════════════════════ -->
+<div class="wrap">
+  <div class="sec-header">
+    <div>
+      <div class="sec-eyebrow">Detalhamento completo</div>
+      <h2 class="sec-title">Revisão <em>post a post</em></h2>
+    </div>
+  </div>
+
+  <div class="posts-stack">
+
+    <!-- ══ POST 1 ══ -->
+    <article class="post-card" id="post-1" data-status="none">
+      <div class="post-stripe"></div>
+      <div class="post-inner">
+        <div class="post-visual">
+          <div class="ig-phone">
+            <div class="ig-bar">
+              <div class="ig-ava">GS</div>
+              <div><div class="ig-handle">gabriela_saueressig <span class="ig-v">✓</span></div></div>
+              <div class="ig-type">Carrossel</div>
+            </div>
+            <div class="ig-carousel">
+              <div class="ig-track" id="itrack-1">
+                <div class="ig-slide"><span class="sc" id="sc-1">1 / 4</span><img src="posts abril/Post 1 - 1.png" alt="Slide 1"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 1 - 2.png" alt="Slide 2"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 1 - 3.png" alt="Slide 3"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 1 - 4.png" alt="Slide 4"/></div>
+              </div>
+              <button class="ig-arrow prev" onclick="igSlide('1',-1)">‹</button>
+              <button class="ig-arrow next" onclick="igSlide('1',1)">›</button>
+              <div class="ig-dots" id="idots-1"></div>
+            </div>
+            <div class="ig-foot">
+              <p class="ig-cap"><strong>gabriela_saueressig</strong> Dor na relação ainda é um tema pouco falado e, muitas vezes, normalizado, mas sentir dor não é algo que você precisa aceitar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="post-panel">
+          <div class="post-head">
+            <div>
+              <div class="post-eyebrow">
+                <span>Conteúdo 01 · 06 abr · Carrossel · 4 slides</span>
+                <span class="funnel-badge fb-topo">Topo de funil</span>
+              </div>
+              <h3 class="post-title">Dor na relação<br><em>não é normal</em></h3>
+            </div>
+            <div class="sb sb-none" id="badge-1"><span class="sbp"></span>Aguardando</div>
+          </div>
+
+          <div>
+            <div class="blk-label">Cards do carrossel</div>
+            <div class="cards-list">
+              <div class="card-item"><div class="card-item-num">Card 1</div>Dor na relação não é algo que você "tem que aprender a lidar"!</div>
+              <div class="card-item"><div class="card-item-num">Card 2</div>Dor durante a relação pode ter diferentes causas: infecções, endometriose, vaginismo, fatores emocionais.</div>
+              <div class="card-item"><div class="card-item-num">Card 3</div>Mas muitas mulheres aprendem, em silêncio, a adaptar o corpo ao desconforto. E, aos poucos, o que deveria ser um momento de conexão, vira algo evitado, tolerado ou até temido.</div>
+              <div class="card-item"><div class="card-item-num">Card 4</div>Com avaliação adequada, é possível entender a causa e definir o melhor caminho para o seu caso.</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="blk-label">✦ Legenda</div>
+            <div class="caption-blk">
+              <span class="handle">gabriela_saueressig</span> Dor na relação ainda é um tema pouco falado e, muitas vezes, normalizado, mas sentir dor não é algo que você precisa aceitar ou aprender a conviver. Na prática, esse sintoma pode ter diferentes causas, e cada uma delas precisa de uma avaliação cuidadosa. Se isso faz parte da sua realidade, vale investigar.
+            </div>
+          </div>
+
+          <div class="comment-note">
+            <div class="cn-header">✎ Comentários</div>
+            <div class="comments-list" id="comments-1"><div class="c-empty">Nenhum comentário ainda.</div></div>
+            <div class="cn-input-row">
+              <textarea class="cn-textarea" id="input-1" rows="2" placeholder="Escreva seu feedback aqui…"></textarea>
+              <button class="btn-send" onclick="addComment('1')">Enviar</button>
+            </div>
+          </div>
+          <div class="reject-alert" id="ralert-1">⚠ Para solicitar ajustes, adicione um comentário primeiro.</div>
+
+          <div class="actions">
+            <button class="abtn btn-ap" id="ba-1" onclick="setStatus('1','approved')">✓ Aprovar</button>
+            <button class="abtn btn-rj" id="br-1" onclick="setStatus('1','rejected')">✎ Ajustar</button>
+            <button class="abtn btn-lt" id="bl-1" onclick="setStatus('1','pending')">⏳ Revisar depois</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ POST 2 ══ -->
+    <article class="post-card" id="post-2" data-status="none">
+      <div class="post-stripe"></div>
+      <div class="post-inner">
+        <div class="post-visual">
+          <div class="ig-phone">
+            <div class="ig-bar">
+              <div class="ig-ava">GS</div>
+              <div><div class="ig-handle">gabriela_saueressig <span class="ig-v">✓</span></div></div>
+              <div class="ig-type">Card único</div>
+            </div>
+            <div class="ig-carousel">
+              <div class="ig-track" id="itrack-2">
+                <div class="ig-slide">
+                  <img src="posts abril/Post 2.png" alt="Post 2"/>
+                </div>
+              </div>
+              <div class="ig-dots" id="idots-2"></div>
+            </div>
+            <div class="ig-foot">
+              <p class="ig-cap"><strong>gabriela_saueressig</strong> Ser médica na era das "soluções rápidas" não é fácil, mas eu AMO educar sobre o que é seguro e baseado em estudos sólidos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="post-panel">
+          <div class="post-head">
+            <div>
+              <div class="post-eyebrow">
+                <span>Conteúdo 02 · 09 abr · Card único</span>
+                <span class="funnel-badge fb-meio">Meio de funil</span>
+              </div>
+              <h3 class="post-title">Ser médica na era<br><em>das soluções rápidas</em></h3>
+            </div>
+            <div class="sb sb-none" id="badge-2"><span class="sbp"></span>Aguardando</div>
+          </div>
+
+          <div>
+            <div class="blk-label">Texto do card</div>
+            <div class="caption-blk">
+              Ser médica na era das "soluções rápidas" não é fácil, mas eu AMO educar sobre o que é seguro e baseado em estudos sólidos e confiáveis!
+            </div>
+          </div>
+
+          <div>
+            <div class="blk-label">✦ Legenda</div>
+            <div class="caption-blk">
+              <span class="handle">gabriela_saueressig</span> A gente vive um tempo em que tudo precisa ser imediato: resultado rápido, promessa fácil, solução pronta. Mas quando o assunto é saúde — e principalmente cirurgia ginecológica — não existe atalho responsável. Por trás de cada decisão, existe estudo, análise, escuta e, muitas vezes, a escolha de NÃO fazer nada naquele momento. E eu sei… isso pode frustrar, mas é justamente aí que mora o cuidado de verdade. Meu papel não é te oferecer respostas fáceis, mas te oferecer segurança e uma condução baseada no que realmente faz sentido para você.
+            </div>
+          </div>
+
+          <div class="comment-note">
+            <div class="cn-header">✎ Comentários</div>
+            <div class="comments-list" id="comments-2"><div class="c-empty">Nenhum comentário ainda.</div></div>
+            <div class="cn-input-row">
+              <textarea class="cn-textarea" id="input-2" rows="2" placeholder="Escreva seu feedback aqui…"></textarea>
+              <button class="btn-send" onclick="addComment('2')">Enviar</button>
+            </div>
+          </div>
+          <div class="reject-alert" id="ralert-2">⚠ Para solicitar ajustes, adicione um comentário primeiro.</div>
+
+          <div class="actions">
+            <button class="abtn btn-ap" id="ba-2" onclick="setStatus('2','approved')">✓ Aprovar</button>
+            <button class="abtn btn-rj" id="br-2" onclick="setStatus('2','rejected')">✎ Ajustar</button>
+            <button class="abtn btn-lt" id="bl-2" onclick="setStatus('2','pending')">⏳ Revisar depois</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ POST 3 ══ -->
+    <article class="post-card" id="post-3" data-status="none">
+      <div class="post-stripe"></div>
+      <div class="post-inner">
+        <div class="post-visual">
+          <div class="ig-phone">
+            <div class="ig-bar">
+              <div class="ig-ava">GS</div>
+              <div><div class="ig-handle">gabriela_saueressig <span class="ig-v">✓</span></div></div>
+              <div class="ig-type">Card único</div>
+            </div>
+            <div class="ig-carousel">
+              <div class="ig-track" id="itrack-3">
+                <div class="ig-slide"><img src="posts abril/Post 3.png" alt="Post 3"/></div>
+              </div>
+              <div class="ig-dots" id="idots-3"></div>
+            </div>
+            <div class="ig-foot">
+              <p class="ig-cap"><strong>gabriela_saueressig</strong> A gente vive um tempo em que tudo precisa ser imediato. Mas quando o assunto é saúde, não existe atalho responsável.</p>
+            </div>
+          </div>
+        </div>
+        <div class="post-panel">
+          <div class="post-head">
+            <div>
+              <div class="post-eyebrow">
+                <span>Conteúdo 03 · 14 abr · Card único</span>
+                <span class="funnel-badge fb-meio">Meio de funil</span>
+              </div>
+              <h3 class="post-title">Ser médica na era<br><em>das soluções rápidas</em></h3>
+            </div>
+            <div class="sb sb-none" id="badge-3"><span class="sbp"></span>Aguardando</div>
+          </div>
+
+          <div>
+            <div class="blk-label">Texto do card</div>
+            <div class="caption-blk">
+              Ser médica na era das "soluções rápidas" não é fácil, mas eu AMO educar sobre o que é seguro e baseado em estudos sólidos e confiáveis!
+            </div>
+          </div>
+
+          <div>
+            <div class="blk-label">✦ Legenda</div>
+            <div class="caption-blk">
+              <span class="handle">gabriela_saueressig</span> A gente vive um tempo em que tudo precisa ser imediato: resultado rápido, promessa fácil, solução pronta. Mas quando o assunto é saúde — e principalmente cirurgia ginecológica — não existe atalho responsável. Por trás de cada decisão, existe estudo, análise, escuta e, muitas vezes, a escolha de NÃO fazer nada naquele momento. Meu papel não é te oferecer respostas fáceis, mas te oferecer segurança e uma condução baseada no que realmente faz sentido para você.
+            </div>
+          </div>
+
+          <div class="comment-note">
+            <div class="cn-header">✎ Comentários</div>
+            <div class="comments-list" id="comments-3"><div class="c-empty">Nenhum comentário ainda.</div></div>
+            <div class="cn-input-row">
+              <textarea class="cn-textarea" id="input-3" rows="2" placeholder="Escreva seu feedback aqui…"></textarea>
+              <button class="btn-send" onclick="addComment('3')">Enviar</button>
+            </div>
+          </div>
+          <div class="reject-alert" id="ralert-3">⚠ Para solicitar ajustes, adicione um comentário primeiro.</div>
+
+          <div class="actions">
+            <button class="abtn btn-ap" id="ba-3" onclick="setStatus('3','approved')">✓ Aprovar</button>
+            <button class="abtn btn-rj" id="br-3" onclick="setStatus('3','rejected')">✎ Ajustar</button>
+            <button class="abtn btn-lt" id="bl-3" onclick="setStatus('3','pending')">⏳ Revisar depois</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ POST 4 ══ -->
+    <article class="post-card" id="post-4" data-status="none">
+      <div class="post-stripe"></div>
+      <div class="post-inner">
+        <div class="post-visual">
+          <div class="ig-phone">
+            <div class="ig-bar">
+              <div class="ig-ava">GS</div>
+              <div><div class="ig-handle">gabriela_saueressig <span class="ig-v">✓</span></div></div>
+              <div class="ig-type">Carrossel</div>
+            </div>
+            <div class="ig-carousel">
+              <div class="ig-track" id="itrack-4">
+                <div class="ig-slide"><span class="sc" id="sc-4">1 / 4</span><img src="posts abril/Post 4 - 1.png" alt="Slide 1"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 4 - 2.png" alt="Slide 2"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 4 - 3.png" alt="Slide 3"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 4 - 4.png" alt="Slide 4"/></div>
+              </div>
+              <button class="ig-arrow prev" onclick="igSlide('4',-1)">‹</button>
+              <button class="ig-arrow next" onclick="igSlide('4',1)">›</button>
+              <div class="ig-dots" id="idots-4"></div>
+            </div>
+            <div class="ig-foot">
+              <p class="ig-cap"><strong>gabriela_saueressig</strong> Candidíase recorrente não deve ser tratada apenas como infecção, mas como um indicativo de desequilíbrio na microbiota vaginal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="post-panel">
+          <div class="post-head">
+            <div>
+              <div class="post-eyebrow">
+                <span>Conteúdo 04 · 16 abr · Carrossel · 4 slides</span>
+                <span class="funnel-badge fb-topo">Topo de funil</span>
+              </div>
+              <h3 class="post-title">Candidíase<br><em>de repetição</em></h3>
+            </div>
+            <div class="sb sb-none" id="badge-4"><span class="sbp"></span>Aguardando</div>
+          </div>
+
+          <div>
+            <div class="blk-label">Texto do card</div>
+            <div class="caption-blk">
+              Candidíase de repetição é um sinal de que algo no seu corpo está em desequilíbrio — e não olhar para isso é o que faz ela voltar.
+            </div>
+          </div>
+
+          <div>
+            <div class="blk-label">✦ Legenda</div>
+            <div class="caption-blk">
+              <span class="handle">gabriela_saueressig</span> Candidíase recorrente não deve ser tratada apenas como infecção, mas como um indicativo de desequilíbrio na microbiota vaginal e no organismo. A microbiota vaginal é um ecossistema complexo, regulado por fatores hormonais, imunológicos e comportamentais. E é por isso que tratar apenas com antifúngicos, sem investigar o contexto, costuma levar a ciclos repetidos de melhora. Na dúvida, consulte a sua ginecologista.
+            </div>
+          </div>
+
+          <div class="comment-note">
+            <div class="cn-header">✎ Comentários</div>
+            <div class="comments-list" id="comments-4"><div class="c-empty">Nenhum comentário ainda.</div></div>
+            <div class="cn-input-row">
+              <textarea class="cn-textarea" id="input-4" rows="2" placeholder="Escreva seu feedback aqui…"></textarea>
+              <button class="btn-send" onclick="addComment('4')">Enviar</button>
+            </div>
+          </div>
+          <div class="reject-alert" id="ralert-4">⚠ Para solicitar ajustes, adicione um comentário primeiro.</div>
+
+          <div class="actions">
+            <button class="abtn btn-ap" id="ba-4" onclick="setStatus('4','approved')">✓ Aprovar</button>
+            <button class="abtn btn-rj" id="br-4" onclick="setStatus('4','rejected')">✎ Ajustar</button>
+            <button class="abtn btn-lt" id="bl-4" onclick="setStatus('4','pending')">⏳ Revisar depois</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ POST 5 ══ -->
+    <article class="post-card" id="post-5" data-status="none">
+      <div class="post-stripe"></div>
+      <div class="post-inner">
+        <div class="post-visual">
+          <div class="ig-phone">
+            <div class="ig-bar">
+              <div class="ig-ava">GS</div>
+              <div><div class="ig-handle">gabriela_saueressig <span class="ig-v">✓</span></div></div>
+              <div class="ig-type">Carrossel</div>
+            </div>
+            <div class="ig-carousel">
+              <div class="ig-track" id="itrack-5">
+                <div class="ig-slide"><span class="sc" id="sc-5">1 / 5</span><img src="posts abril/Post 5 - 1.png" alt="Slide 1"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 5 - 2.png" alt="Slide 2"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 5 - 3.png" alt="Slide 3"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 5 - 4.png" alt="Slide 4"/></div>
+                <div class="ig-slide"><img src="posts abril/Post 5 - 5.png" alt="Slide 5"/></div>
+              </div>
+              <button class="ig-arrow prev" onclick="igSlide('5',-1)">‹</button>
+              <button class="ig-arrow next" onclick="igSlide('5',1)">›</button>
+              <div class="ig-dots" id="idots-5"></div>
+            </div>
+            <div class="ig-foot">
+              <p class="ig-cap"><strong>gabriela_saueressig</strong> Quando a gente fala em vacina contra o HPV, estamos falando de reduzir riscos lá na frente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="post-panel">
+          <div class="post-head">
+            <div>
+              <div class="post-eyebrow">
+                <span>Conteúdo 05 · 21 abr · Carrossel · 5 slides</span>
+                <span class="funnel-badge fb-topo">Topo de funil</span>
+              </div>
+              <h3 class="post-title">Vacina do HPV<br><em>após relação sexual</em></h3>
+            </div>
+            <div class="sb sb-none" id="badge-5"><span class="sbp"></span>Aguardando</div>
+          </div>
+
+          <div>
+            <div class="blk-label">Cards do carrossel</div>
+            <div class="cards-list">
+              <div class="card-item"><div class="card-item-num">Card 1</div>Depois de já ter tido relação sexual, vale a pena fazer a vacina do HPV?</div>
+              <div class="card-item"><div class="card-item-num">Card 2</div>Existem mais de 100 tipos de vírus do HPV, e é muito improvável que você já tenha sido exposta a todos eles mesmo após iniciar a atividade sexual.</div>
+              <div class="card-item"><div class="card-item-num">Card 3</div>A vacina vai te proteger contra os tipos mais graves de HPV — aqueles que causam câncer — além de evitar reinfecções.</div>
+              <div class="card-item"><div class="card-item-num">Card 4</div>Por isso, a minha recomendação é clara: se você estiver dentro da faixa indicada, vale sim considerar a vacinação como parte do seu cuidado com a saúde.</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="blk-label">✦ Legenda</div>
+            <div class="caption-blk">
+              <span class="handle">gabriela_saueressig</span> Quando a gente fala em vacina contra o HPV, estamos falando de reduzir riscos lá na frente. Isso porque o HPV é extremamente comum, mas as consequências dele não precisam ser. A vacina entra como uma camada de proteção importante, diminuindo as chances de desenvolvimento de lesões e, principalmente, a evolução dessas lesões para câncer ao longo da vida. Por isso, se você está dentro da faixa indicada, vale considerar essa proteção como parte do seu cuidado contínuo.
+            </div>
+          </div>
+
+          <div class="comment-note">
+            <div class="cn-header">✎ Comentários</div>
+            <div class="comments-list" id="comments-5"><div class="c-empty">Nenhum comentário ainda.</div></div>
+            <div class="cn-input-row">
+              <textarea class="cn-textarea" id="input-5" rows="2" placeholder="Escreva seu feedback aqui…"></textarea>
+              <button class="btn-send" onclick="addComment('5')">Enviar</button>
+            </div>
+          </div>
+          <div class="reject-alert" id="ralert-5">⚠ Para solicitar ajustes, adicione um comentário primeiro.</div>
+
+          <div class="actions">
+            <button class="abtn btn-ap" id="ba-5" onclick="setStatus('5','approved')">✓ Aprovar</button>
+            <button class="abtn btn-rj" id="br-5" onclick="setStatus('5','rejected')">✎ Ajustar</button>
+            <button class="abtn btn-lt" id="bl-5" onclick="setStatus('5','pending')">⏳ Revisar depois</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ POST 6 ══ -->
+    <article class="post-card" id="post-6" data-status="none">
+      <div class="post-stripe"></div>
+      <div class="post-inner">
+        <div class="post-visual">
+          <div class="ig-phone">
+            <div class="ig-bar">
+              <div class="ig-ava">GS</div>
+              <div><div class="ig-handle">gabriela_saueressig <span class="ig-v">✓</span></div></div>
+              <div class="ig-type">Card único</div>
+            </div>
+            <div class="ig-carousel">
+              <div class="ig-track" id="itrack-6">
+                <div class="ig-slide">
+                  <img src="posts abril/Post 6.png" alt="Post 6"/>
+                </div>
+              </div>
+              <div class="ig-dots" id="idots-6"></div>
+            </div>
+            <div class="ig-foot">
+              <p class="ig-cap"><strong>gabriela_saueressig</strong> Você não precisa chegar na consulta sabendo explicar tudo. Eu estou aqui justamente para isso.</p>
+            </div>
+          </div>
+        </div>
+        <div class="post-panel">
+          <div class="post-head">
+            <div>
+              <div class="post-eyebrow">
+                <span>Conteúdo 06 · 28 abr · Card único</span>
+                <span class="funnel-badge fb-fundo">Fundo de funil</span>
+              </div>
+              <h3 class="post-title">O óbvio que<br><em>precisa ser dito</em></h3>
+            </div>
+            <div class="sb sb-none" id="badge-6"><span class="sbp"></span>Aguardando</div>
+          </div>
+
+          <div>
+            <div class="blk-label">Texto do card</div>
+            <div class="caption-blk" style="font-family:'Playfair Display',serif;font-size:15px;font-style:italic;line-height:1.55;">
+              "O óbvio que precisa ser dito: você não precisa chegar na consulta sabendo explicar tudo."
+            </div>
+          </div>
+
+          <div>
+            <div class="blk-label">Formato</div>
+            <div class="chips">
+              <span class="chip">Card único · 1080×1350</span>
+              <span class="chip">Fundo de funil · Conversão</span>
+              <span class="chip">CTA: link da bio</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="blk-label">✦ Legenda</div>
+            <div class="caption-blk">
+              <span class="handle">gabriela_saueressig</span> Muitas pacientes acham que precisam saber tudo antes de virem para a consulta. E, por isso, chegam já preocupadas. A verdade é que eu estou aqui justamente para isso: para tirar todas as tuas dúvidas com responsabilidade e cuidado. Minha consulta acontece em Porto Alegre e é um espaço de cuidado, atenção e entendimento de possibilidades para cada caso. Agende diretamente pelo link da bio!
+            </div>
+          </div>
+
+          <div class="comment-note">
+            <div class="cn-header">✎ Comentários</div>
+            <div class="comments-list" id="comments-6"><div class="c-empty">Nenhum comentário ainda.</div></div>
+            <div class="cn-input-row">
+              <textarea class="cn-textarea" id="input-6" rows="2" placeholder="Escreva seu feedback aqui…"></textarea>
+              <button class="btn-send" onclick="addComment('6')">Enviar</button>
+            </div>
+          </div>
+          <div class="reject-alert" id="ralert-6">⚠ Para solicitar ajustes, adicione um comentário primeiro.</div>
+
+          <div class="actions">
+            <button class="abtn btn-ap" id="ba-6" onclick="setStatus('6','approved')">✓ Aprovar</button>
+            <button class="abtn btn-rj" id="br-6" onclick="setStatus('6','rejected')">✎ Ajustar</button>
+            <button class="abtn btn-lt" id="bl-6" onclick="setStatus('6','pending')">⏳ Revisar depois</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /posts-stack -->
+</div>
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer class="footer">
+  <div class="footer-bg"></div>
+  <div class="footer-grain"></div>
+  <div class="footer-content">
+    <p class="footer-title">Obri<em>gada!</em></p>
+    <div class="footer-div"></div>
+    <p class="footer-body">
+      Fique à vontade para enviar qualquer feedback adicional.<br>
+      Isso nos ajuda a evoluir cada detalhe do seu projeto.
+    </p>
+    <div class="footer-summary">
+      <div class="fs-item">
+        <div class="fs-num green" id="f-approved">0</div>
+        <div class="fs-lbl">Aprovados</div>
+      </div>
+      <div class="fs-item">
+        <div class="fs-num yellow" id="f-pending">6</div>
+        <div class="fs-lbl">Pendentes</div>
+      </div>
+      <div class="fs-item">
+        <div class="fs-num wine" id="f-rejected">0</div>
+        <div class="fs-lbl">Ajustes</div>
+      </div>
+    </div>
+    <p class="footer-sig" style="margin-top:36px">Criado com cuidado pela <strong>Duas Mãos Agency</strong></p>
+  </div>
+</footer>
+
+<div id="toast"><span class="ti" id="ti"></span><span class="tm" id="tm"></span></div>
+
+<script>
+  /* ── Mini carousels (overview) ─────────────────── */
+  const ms = {};
+  function initMini(id) {
+    const t = document.getElementById(`mtrack-${id}`);
+    if (!t) return;
+    const n = t.children.length;
+    ms[id] = { i:0, n, timer:null };
+    const dc = document.getElementById(`mdots-${id}`);
+    for(let x=0;x<n;x++){
+      const d=document.createElement('div');
+      d.className='mini-dot'+(x===0?' active':'');
+      dc.appendChild(d);
+    }
+    if(n>1) ms[id].timer = setInterval(()=>miniGo(id, ms[id].i+1), 2000);
+  }
+  function miniGo(id,idx){
+    const s=ms[id]; s.i=((idx%s.n)+s.n)%s.n;
+    document.getElementById(`mtrack-${id}`).style.transform=`translateX(-${s.i*100}%)`;
+    document.querySelectorAll(`#mdots-${id} .mini-dot`).forEach((d,i)=>d.classList.toggle('active',i===s.i));
+  }
+
+  /* ── IG carousels (detail) ─────────────────────── */
+  const ig = {};
+  function initIg(id){
+    const t=document.getElementById(`itrack-${id}`);
+    if(!t) return;
+    const n=t.children.length;
+    ig[id]={i:0,n};
+    const dc=document.getElementById(`idots-${id}`);
+    for(let x=0;x<n;x++){
+      const d=document.createElement('div');
+      d.className='ig-dot'+(x===0?' active':'');
+      d.onclick=()=>igGo(id,x);
+      dc.appendChild(d);
+    }
+  }
+  function igGo(id,idx){
+    const s=ig[id]; s.i=Math.max(0,Math.min(idx,s.n-1));
+    document.getElementById(`itrack-${id}`).style.transform=`translateX(-${s.i*100}%)`;
+    document.querySelectorAll(`#idots-${id} .ig-dot`).forEach((d,i)=>d.classList.toggle('active',i===s.i));
+    const sc=document.getElementById(`sc-${id}`);
+    if(sc) sc.textContent=`${s.i+1} / ${s.n}`;
+  }
+  function igSlide(id,dir){ igGo(id,ig[id].i+dir); }
+
+  ['1','2','3','4','5','6'].forEach(id=>{ initMini(id); initIg(id); });
+
+  /* ── Status ────────────────────────────────────── */
+  const statuses={'1':'none','2':'none','3':'none','4':'none','5':'none','6':'none'};
+  const TOTAL = 6;
+
+  const smap = {
+    approved:{ label:'Aprovado',          sp:'sp-approved', sb:'sb-approved' },
+    rejected:{ label:'Ajustes solicitados', sp:'sp-rejected', sb:'sb-rejected' },
+    pending: { label:'Revisar depois',    sp:'sp-pending',  sb:'sb-pending'  },
+    none:    { label:'Aguardando',        sp:'sp-none',     sb:'sb-none'     },
+  };
+
+  function setStatus(id, status){
+    if(status==='rejected'){
+      const list=document.getElementById(`comments-${id}`);
+      const inp=document.getElementById(`input-${id}`);
+      const hasC=list.querySelectorAll('.c-item').length>0;
+      if(!hasC && !inp.value.trim()){
+        document.getElementById(`ralert-${id}`).classList.add('show');
+        inp.focus(); inp.style.outline='2px solid var(--wine)';
+        setTimeout(()=>{ document.getElementById(`ralert-${id}`).classList.remove('show'); inp.style.outline=''; },3500);
+        return;
+      }
+      if(inp.value.trim()) addComment(id,false);
+    }
+    statuses[id]=status;
+    document.getElementById(`post-${id}`).dataset.status=status;
+    document.getElementById(`ov-${id}`).classList.toggle('active-post',status!=='none');
+
+    const sp=document.getElementById(`sp-${id}`);
+    sp.className=`sp ${smap[status].sp}`;
+    sp.innerHTML=`<span class="pip"></span>${smap[status].label}`;
+
+    const badge=document.getElementById(`badge-${id}`);
+    badge.className=`sb ${smap[status].sb}`;
+    badge.innerHTML=`<span class="sbp"></span>${smap[status].label}`;
+
+    document.getElementById(`ba-${id}`).classList.toggle('active',status==='approved');
+    document.getElementById(`br-${id}`).classList.toggle('active',status==='rejected');
+    document.getElementById(`bl-${id}`).classList.toggle('active',status==='pending');
+
+    updateCounts();
+    saveState();
+    lockButtons(id, status);
+    const toasts={
+      approved:['✅','Conteúdo aprovado!'],
+      rejected:['✏️','Ajustes solicitados.'],
+      pending: ['⏳','Marcado para revisar depois.'],
+    };
+    showToast(...toasts[status]);
+  }
+
+  function lockButtons(id, status) {
+    const map = { approved: `ba-${id}`, rejected: `br-${id}`, pending: `bl-${id}` };
+    Object.entries(map).forEach(([s, btnId]) => {
+      const btn = document.getElementById(btnId);
+      if (btn) btn.classList.toggle('locked', s !== status);
+    });
+  }
+
+  /* ── Comments ──────────────────────────────────── */
+  function addComment(id, showT=true){
+    const inp=document.getElementById(`input-${id}`);
+    const text=inp.value.trim(); if(!text) return;
+    const list=document.getElementById(`comments-${id}`);
+    const e=list.querySelector('.c-empty'); if(e) e.remove();
+    const t=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+    const el=document.createElement('div'); el.className='c-item';
+    el.innerHTML=`<div class="c-author">Dra. Gabriela <span class="c-time">${t}</span></div>${text}`;
+    list.appendChild(el); list.scrollTop=list.scrollHeight;
+    inp.value=''; inp.style.outline='';
+    saveState();
+    if(showT) showToast('💬','Comentário adicionado.');
+  }
+
+  /* ── Counts ────────────────────────────────────── */
+  function updateCounts(){
+    const c={approved:0,pending:0,rejected:0,none:0};
+    Object.values(statuses).forEach(s=>c[s]++);
+    document.getElementById('f-approved').textContent=c.approved;
+    document.getElementById('f-pending').textContent=c.pending;
+    document.getElementById('f-rejected').textContent=c.rejected;
+    const pct=(c.approved/TOTAL)*100;
+    document.getElementById('pbFill').style.width=pct+'%';
+    document.getElementById('pbLabel').innerHTML=`<strong>${c.approved}</strong> de ${TOTAL} aprovados`;
+  }
+
+  /* ── Jump to detail ────────────────────────────── */
+  function jumpTo(postId){
+    const el=document.getElementById(postId);
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(()=>{ el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); },650);
+  }
+
+  /* ── Toast ─────────────────────────────────────── */
+  let tTimer;
+  function showToast(icon,msg){
+    const el=document.getElementById('toast');
+    document.getElementById('ti').textContent=icon;
+    document.getElementById('tm').textContent=msg;
+    el.classList.add('show');
+    clearTimeout(tTimer);
+    tTimer=setTimeout(()=>el.classList.remove('show'),3000);
+  }
+
+  /* ── PERSISTÊNCIA (localStorage) ────────────────── */
+  const SAVE_KEY = 'gabriela_abril_2026_v1';
+
+  function saveState(){
+    const data = { statuses: { ...statuses }, comments: {} };
+    ['1','2','3','4','5','6'].forEach(id => {
+      const list = document.getElementById(`comments-${id}`);
+      data.comments[id] = Array.from(list.querySelectorAll('.c-item')).map(el => ({
+        author: el.querySelector('.c-author')?.firstChild?.textContent?.trim() || 'Dra. Gabriela',
+        time:   el.querySelector('.c-time')?.textContent?.trim() || '',
+        text:   el.lastChild?.textContent?.trim() || ''
+      }));
+    });
+    localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+  }
+
+  function applyStatus(id, status){
+    statuses[id] = status;
+    document.getElementById(`post-${id}`).dataset.status = status;
+    document.getElementById(`ov-${id}`).classList.toggle('active-post', status !== 'none');
+    const sp = document.getElementById(`sp-${id}`);
+    sp.className = `sp ${smap[status].sp}`;
+    sp.innerHTML = `<span class="pip"></span>${smap[status].label}`;
+    const badge = document.getElementById(`badge-${id}`);
+    badge.className = `sb ${smap[status].sb}`;
+    badge.innerHTML = `<span class="sbp"></span>${smap[status].label}`;
+    document.getElementById(`ba-${id}`).classList.toggle('active', status === 'approved');
+    document.getElementById(`br-${id}`).classList.toggle('active', status === 'rejected');
+    document.getElementById(`bl-${id}`).classList.toggle('active', status === 'pending');
+    lockButtons(id, status);
+  }
+
+  function loadState(){
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) { updateCounts(); return; }
+    try {
+      const data = JSON.parse(raw);
+      // Restaurar comentários
+      ['1','2','3','4','5','6'].forEach(id => {
+        const saved = data.comments?.[id] || [];
+        if (!saved.length) return;
+        const list = document.getElementById(`comments-${id}`);
+        const empty = list.querySelector('.c-empty'); if(empty) empty.remove();
+        saved.forEach(c => {
+          const el = document.createElement('div'); el.className = 'c-item';
+          el.innerHTML = `<div class="c-author">${c.author} <span class="c-time">${c.time}</span></div>${c.text}`;
+          list.appendChild(el);
+        });
+      });
+      // Restaurar status
+      ['1','2','3','4','5','6'].forEach(id => {
+        const s = data.statuses?.[id] || 'none';
+        if (s !== 'none') applyStatus(id, s);
+      });
+    } catch(e) { console.warn('Erro ao restaurar estado:', e); }
+    updateCounts();
+  }
+
+  function clearState(){
+    if (!confirm('Limpar todas as respostas e comentários salvos?')) return;
+    localStorage.removeItem(SAVE_KEY);
+    location.reload();
+  }
+
+  loadState();
+
+  /* ── INTERSECTION OBSERVER (scroll animations) ─── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  // Observe static reveal elements
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Stagger ov-cards
+  document.querySelectorAll('.ov-card').forEach((card, i) => {
+    card.classList.add('reveal');
+    card.style.transitionDelay = `${i * 0.07}s`;
+    revealObserver.observe(card);
+  });
+
+  // Stagger post-cards
+  document.querySelectorAll('.post-card').forEach((card, i) => {
+    card.classList.add('reveal');
+    card.style.transitionDelay = `${i * 0.06}s`;
+    revealObserver.observe(card);
+  });
+
+  // Observe detail section header
+  document.querySelectorAll('.sec-header').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // Footer
+  const footer = document.querySelector('.footer');
+  if (footer) { footer.classList.add('reveal'); revealObserver.observe(footer); }
+
+  /* ── LIGHTBOX ───────────────────────────────────── */
+  const lbSources = {
+    '1': ['posts abril/Post 1 - 1.png','posts abril/Post 1 - 2.png','posts abril/Post 1 - 3.png','posts abril/Post 1 - 4.png'],
+    '2': ['posts abril/Post 2.png'],
+    '3': ['posts abril/Post 3.png'],
+    '4': ['posts abril/Post 4 - 1.png','posts abril/Post 4 - 2.png','posts abril/Post 4 - 3.png','posts abril/Post 4 - 4.png'],
+    '5': ['posts abril/Post 5 - 1.png','posts abril/Post 5 - 2.png','posts abril/Post 5 - 3.png','posts abril/Post 5 - 4.png','posts abril/Post 5 - 5.png'],
+    '6': ['posts abril/Post 6.png'],
+  };
+
+  const lbTitles = {
+    '1':'Dor na relação',
+    '2':'Ser médica na era das soluções rápidas',
+    '3':'Ser médica na era das soluções rápidas',
+    '4':'Candidíase de repetição',
+    '5':'Vacina do HPV',
+    '6':'O óbvio que precisa ser dito',
+  };
+
+  let lbPost = null, lbIdx = 0;
+
+  /* Extract dominant color via canvas */
+  function setLbBg(src) {
+    const lb = document.getElementById('lightbox');
+    const tmp = new Image();
+    tmp.onload = function() {
+      try {
+        const c = document.createElement('canvas');
+        c.width = 60; c.height = 60;
+        const ctx = c.getContext('2d');
+        ctx.drawImage(tmp, 0, 0, 60, 60);
+        const d = ctx.getImageData(0, 0, 60, 60).data;
+        let r=0, g=0, b=0, n=0;
+        for (let i=0; i<d.length; i+=16){ r+=d[i]; g+=d[i+1]; b+=d[i+2]; n++; }
+        r=Math.round(r/n); g=Math.round(g/n); b=Math.round(b/n);
+        const dark = `rgb(${Math.round(r*.1)},${Math.round(g*.1)},${Math.round(b*.1)})`;
+        const mid  = `rgb(${Math.round(r*.28)},${Math.round(g*.28)},${Math.round(b*.28)})`;
+        lb.style.background = `radial-gradient(ellipse 90% 75% at 50% 40%, ${mid} 0%, ${dark} 100%)`;
+      } catch(e) {
+        lb.style.background = 'rgba(10,8,8,.97)';
+      }
+    };
+    tmp.onerror = () => { lb.style.background = 'rgba(10,8,8,.97)'; };
+    tmp.src = src;
+  }
+
+  function openLightbox(postId) {
+    lbPost = postId;
+    lbIdx = ig[postId] ? ig[postId].i : 0;
+    renderLightbox();
+    setLbBg(lbSources[postId][0]);
+    const lb = document.getElementById('lightbox');
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function renderLightbox() {
+    const srcs = lbSources[lbPost];
+    const total = srcs.length;
+    const img = document.getElementById('lbImg');
+    const counter = document.getElementById('lbCounter');
+    const title = document.getElementById('lbTitle');
+    const prev = document.getElementById('lbPrev');
+    const next = document.getElementById('lbNext');
+    const film = document.getElementById('lbFilmstrip');
+
+    img.src = srcs[lbIdx];
+    counter.textContent = total > 1 ? `${lbIdx + 1} / ${total}` : '';
+    title.textContent = lbTitles[lbPost] || '';
+    prev.classList.toggle('hidden', total <= 1);
+    next.classList.toggle('hidden', total <= 1);
+    prev.disabled = lbIdx === 0;
+    next.disabled = lbIdx === total - 1;
+
+    /* Filmstrip */
+    film.innerHTML = '';
+    film.style.display = total > 1 ? 'flex' : 'none';
+    if (total > 1) {
+      srcs.forEach((src, i) => {
+        const th = document.createElement('div');
+        th.className = 'lb-thumb' + (i === lbIdx ? ' active' : '');
+        th.onclick = (e) => { e.stopPropagation(); lbGo(i); };
+        const tImg = document.createElement('img');
+        tImg.src = src;
+        tImg.alt = `Slide ${i+1}`;
+        th.appendChild(tImg);
+        film.appendChild(th);
+        if (i === lbIdx) setTimeout(() => th.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}), 50);
+      });
+    }
+  }
+
+  function lbGo(idx) {
+    const img = document.getElementById('lbImg');
+    img.classList.add('switching');
+    setTimeout(() => {
+      lbIdx = idx;
+      renderLightbox();
+      img.classList.remove('switching');
+    }, 180);
+  }
+
+  function lbSlide(dir) {
+    const srcs = lbSources[lbPost];
+    const newIdx = lbIdx + dir;
+    if (newIdx < 0 || newIdx >= srcs.length) return;
+    lbGo(newIdx);
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+    lbPost = null;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!lbPost) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowRight') lbSlide(1);
+    if (e.key === 'ArrowLeft')  lbSlide(-1);
+  });
+
+  // Attach open lightbox to each ig-phone
+  document.querySelectorAll('.ig-phone').forEach(phone => {
+    const article = phone.closest('article[id]');
+    if (!article) return;
+    const postId = article.id.replace('post-', '');
+    phone.addEventListener('click', (e) => {
+      if (e.target.closest('.ig-arrow')) return; // don't intercept carousel arrows
+      openLightbox(postId);
+    });
+  });
+
+</script>
+
+<!-- ════ LIGHTBOX MODAL ════ -->
+<div id="lightbox">
+  <div class="lb-backdrop" onclick="closeLightbox()"></div>
+
+  <div class="lb-top">
+    <div class="lb-title" id="lbTitle"></div>
+    <div class="lb-counter" id="lbCounter"></div>
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+  </div>
+
+  <button class="lb-arrow lb-prev" id="lbPrev" onclick="lbSlide(-1)">‹</button>
+  <button class="lb-arrow lb-next" id="lbNext" onclick="lbSlide(1)">›</button>
+
+  <div class="lb-inner">
+    <div class="lb-img-wrap">
+      <img id="lbImg" src="" alt="Post em tela cheia"/>
+    </div>
+  </div>
+
+  <div class="lb-filmstrip" id="lbFilmstrip"></div>
+</div>
+
+</body>
+</html>
