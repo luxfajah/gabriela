@@ -1028,8 +1028,8 @@
 
           <div class="actions">
             <button class="abtn btn-ap" id="ba-1" onclick="setStatus('1','approved')">✓ Aprovar</button>
-            <button class="abtn btn-rj" id="br-1" onclick="setStatus('1','rejected')">✎ Ajustar</button>
-            <button class="abtn btn-lt" id="bl-1" onclick="setStatus('1','pending')">⏳ Revisar depois</button>
+            <button class="abtn btn-rj" id="br-1" onclick="setStatus('1','rejected')">✎ Reprovar</button>
+            <button class="abtn btn-lt" id="bl-1" onclick="setStatus('1','pending')">⏳ Revisar</button>
           </div>
         </div>
       </div>
@@ -1097,8 +1097,8 @@
 
           <div class="actions">
             <button class="abtn btn-ap" id="ba-2" onclick="setStatus('2','approved')">✓ Aprovar</button>
-            <button class="abtn btn-rj" id="br-2" onclick="setStatus('2','rejected')">✎ Ajustar</button>
-            <button class="abtn btn-lt" id="bl-2" onclick="setStatus('2','pending')">⏳ Revisar depois</button>
+            <button class="abtn btn-rj" id="br-2" onclick="setStatus('2','rejected')">✎ Reprovar</button>
+            <button class="abtn btn-lt" id="bl-2" onclick="setStatus('2','pending')">⏳ Revisar</button>
           </div>
         </div>
       </div>
@@ -1164,8 +1164,8 @@
 
           <div class="actions">
             <button class="abtn btn-ap" id="ba-3" onclick="setStatus('3','approved')">✓ Aprovar</button>
-            <button class="abtn btn-rj" id="br-3" onclick="setStatus('3','rejected')">✎ Ajustar</button>
-            <button class="abtn btn-lt" id="bl-3" onclick="setStatus('3','pending')">⏳ Revisar depois</button>
+            <button class="abtn btn-rj" id="br-3" onclick="setStatus('3','rejected')">✎ Reprovar</button>
+            <button class="abtn btn-lt" id="bl-3" onclick="setStatus('3','pending')">⏳ Revisar</button>
           </div>
         </div>
       </div>
@@ -1239,8 +1239,8 @@
 
           <div class="actions">
             <button class="abtn btn-ap" id="ba-4" onclick="setStatus('4','approved')">✓ Aprovar</button>
-            <button class="abtn btn-rj" id="br-4" onclick="setStatus('4','rejected')">✎ Ajustar</button>
-            <button class="abtn btn-lt" id="bl-4" onclick="setStatus('4','pending')">⏳ Revisar depois</button>
+            <button class="abtn btn-rj" id="br-4" onclick="setStatus('4','rejected')">✎ Reprovar</button>
+            <button class="abtn btn-lt" id="bl-4" onclick="setStatus('4','pending')">⏳ Revisar</button>
           </div>
         </div>
       </div>
@@ -1316,8 +1316,8 @@
 
           <div class="actions">
             <button class="abtn btn-ap" id="ba-5" onclick="setStatus('5','approved')">✓ Aprovar</button>
-            <button class="abtn btn-rj" id="br-5" onclick="setStatus('5','rejected')">✎ Ajustar</button>
-            <button class="abtn btn-lt" id="bl-5" onclick="setStatus('5','pending')">⏳ Revisar depois</button>
+            <button class="abtn btn-rj" id="br-5" onclick="setStatus('5','rejected')">✎ Reprovar</button>
+            <button class="abtn btn-lt" id="bl-5" onclick="setStatus('5','pending')">⏳ Revisar</button>
           </div>
         </div>
       </div>
@@ -1394,8 +1394,8 @@
 
           <div class="actions">
             <button class="abtn btn-ap" id="ba-6" onclick="setStatus('6','approved')">✓ Aprovar</button>
-            <button class="abtn btn-rj" id="br-6" onclick="setStatus('6','rejected')">✎ Ajustar</button>
-            <button class="abtn btn-lt" id="bl-6" onclick="setStatus('6','pending')">⏳ Revisar depois</button>
+            <button class="abtn btn-rj" id="br-6" onclick="setStatus('6','rejected')">✎ Reprovar</button>
+            <button class="abtn btn-lt" id="bl-6" onclick="setStatus('6','pending')">⏳ Revisar</button>
           </div>
         </div>
       </div>
@@ -1489,8 +1489,8 @@
 
   const smap = {
     approved:{ label:'Aprovado',          sp:'sp-approved', sb:'sb-approved' },
-    rejected:{ label:'Ajustes solicitados', sp:'sp-rejected', sb:'sb-rejected' },
-    pending: { label:'Revisar depois',    sp:'sp-pending',  sb:'sb-pending'  },
+    rejected:{ label:'Reprovado',          sp:'sp-rejected', sb:'sb-rejected' },
+    pending: { label:'Em revisão',         sp:'sp-pending',  sb:'sb-pending'  },
     none:    { label:'Aguardando',        sp:'sp-none',     sb:'sb-none'     },
   };
 
@@ -1528,8 +1528,8 @@
     lockButtons(id, status);
     const toasts={
       approved:['✅','Conteúdo aprovado!'],
-      rejected:['✏️','Ajustes solicitados.'],
-      pending: ['⏳','Marcado para revisar depois.'],
+      rejected:['✏️','Conteúdo reprovado.'],
+      pending: ['⏳','Marcado para revisão.'],
     };
     showToast(...toasts[status]);
   }
