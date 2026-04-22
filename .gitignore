@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.local
+.vercel
+
+# Local development files (não necessários no Vercel)
+server.py
+responses.json
+pdf_dump.txt
+utils/
+generate.py

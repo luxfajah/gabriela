@@ -1414,16 +1414,24 @@
   }
 
   /* ── Persistence ───────────────────────────────── */
-  const SAVE_KEY = 'gabriela_abril_v2';
 
-  function saveState(){
+  async function saveState(){
     const data = { statuses: { ...statuses }, comments: {} };
     ['1','2','3','4','5','6'].forEach(id => {
       const cl = document.getElementById(`comments-${id}`);
       const items = cl.querySelectorAll('.c-item');
       data.comments[id] = [...items].map(el => el.innerHTML);
     });
-    localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+    
+    try {
+      await fetch('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+    } catch (e) {
+      console.error('Erro ao salvar no servidor:', e);
+    }
   }
 
   function applyStatus(id, status){
@@ -1437,11 +1445,16 @@
     lockButtons(id, status);
   }
 
-  function loadState(){
-    const raw = localStorage.getItem(SAVE_KEY);
-    if (!raw) { updateCounts(); return; }
+  async function loadState(){
     try {
-      const data = JSON.parse(raw);
+      const resp = await fetch('/api/load');
+      const data = await resp.json();
+      
+      if (!data || Object.keys(data).length === 0) { 
+        updateCounts(); 
+        return; 
+      }
+
       ['1','2','3','4','5','6'].forEach(id => {
         const comments = data.comments?.[id] || [];
         if (comments.length) {
@@ -1460,14 +1473,24 @@
         const s = data.statuses?.[id] || 'none';
         if (s !== 'none') applyStatus(id, s);
       });
-    } catch(e) {}
+    } catch(e) {
+      console.error('Erro ao carregar do servidor:', e);
+    }
     updateCounts();
   }
 
-  function clearState(){
-    if (!confirm('Limpar todas as respostas e comentários?')) return;
-    localStorage.removeItem(SAVE_KEY);
-    location.reload();
+  async function clearState(){
+    if (!confirm('Limpar todas as respostas e comentários no sistema?')) return;
+    try {
+      await fetch('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({})
+      });
+      location.reload();
+    } catch (e) {
+      alert('Erro ao limpar dados.');
+    }
   }
 
   loadState();
