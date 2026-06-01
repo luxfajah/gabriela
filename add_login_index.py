@@ -1,120 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aprovação de Conteúdo — Gabriela Saueressig</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+import re
 
-  <style>
-    :root {
-      --bg:         #F8F6F4;
-      --text:       #1C1817;
-      --gold:       #C4A882;
-      --radius-pill:50px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+with open('/Users/luxfajah/gabriela/index.html', 'r', encoding='utf-8') as f:
+    html = f.read()
 
-    .hero {
-      position: relative;
-      height: 100vh; min-height: 600px;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('pexels-didsss-19856128.webp');
-      background-size: cover; background-position: center;
-      filter: blur(2px) saturate(1.1);
-      transform: scale(1.04);
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(165deg,rgba(20,8,8,.75) 0%,rgba(70,30,18,.48) 45%,rgba(30,20,15,.72) 100%);
-    }
-    .hero-grain {
-      position: absolute; inset: 0; opacity: .035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 200px;
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; padding: 60px 24px; max-width: 700px;
-    }
-    .hero-logo {
-      width: clamp(445px, 60vw, 608px); height: auto;
-      margin: 20px 0 16px;
-      filter: brightness(0) invert(1) drop-shadow(0 2px 20px rgba(0,0,0,.4));
-      animation: fadeSlideUp .9s .2s cubic-bezier(.4,0,.2,1) both;
-    }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,.12); backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-pill);
-      padding: 7px 18px; font-size: 11px; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.85);
-      margin-bottom: 28px;
-      animation: fadeSlideDown .7s .1s cubic-bezier(.4,0,.2,1) both;
-    }
-    .hero-divider {
-      width: 44px; height: 1px; background: var(--gold);
-      margin: 22px auto; opacity: .55;
-      animation: scaleIn .5s .55s ease both;
-    }
-    .hero-tagline {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: clamp(16px, 2.4vw, 21px);
-      color: rgba(255,255,255,.88); line-height: 1.45; font-weight: 400;
-      animation: fadeSlideUp .7s .6s cubic-bezier(.4,0,.2,1) both;
-      margin-bottom: 40px;
-    }
-
-    .btn-container {
-      display: flex; gap: 20px; justify-content: center;
-      animation: fadeSlideUp .7s .8s cubic-bezier(.4,0,.2,1) both;
-      flex-wrap: wrap;
-    }
-
-    .btn-month {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,.1); backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,.3); border-radius: var(--radius-pill);
-      padding: 16px 36px;
-      font-size: 16px; font-weight: 600; text-decoration: none;
-      color: #fff;
-      transition: all .3s ease;
-    }
-
-    .btn-month:hover {
-      background: rgba(255,255,255,.25);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0,0,0,.2);
-      border-color: rgba(255,255,255,.6);
-    }
-
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeSlideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(.96); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-  
+# Add CSS
+login_css = """
     /* ── Login Screen ──────────────────────────────────────── */
     .login-screen {
       position: fixed; inset: 0; z-index: 10000;
@@ -196,10 +86,12 @@
       height: 100vh;
     }
   </style>
+"""
+if "/* ── Login Screen" not in html:
+    html = html.replace('</style>', login_css)
 
-</head>
-<body>
-
+# Add HTML
+login_html = """
 <div id="login-screen" class="login-screen">
   <div class="login-box">
     <img src="logos/logo header.webp" alt="Gabriela Saueressig">
@@ -210,26 +102,12 @@
     <div id="login-error" class="login-error"></div>
   </div>
 </div>
+"""
+if '<div id="login-screen"' not in html:
+    html = html.replace('<body>', f'<body>\n{login_html}')
 
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Plataforma de Aprovação de Conteúdo</div>
-    <img src="logos/logo header.webp" alt="Gabriela Saueressig" class="hero-logo"/>
-    <div class="hero-divider"></div>
-    <p class="hero-tagline">Selecione o mês para revisar os conteúdos</p>
-    
-    <div class="btn-container">
-      <a href="abril.html" class="btn-month">Entregas de Abril</a>
-      <a href="junho.html" class="btn-month">Entregas de Junho</a>
-    </div>
-  </div>
-</section>
-
-
+# Add JS
+login_js = """
 <script>
   const loginScreen = document.getElementById('login-screen');
   const loginBtn = document.getElementById('login-btn');
@@ -287,5 +165,9 @@
   }
 </script>
 </body>
+"""
+if 'const loginScreen = document.getElementById' not in html:
+    html = html.replace('</body>', login_js)
 
-</html>
+with open('/Users/luxfajah/gabriela/index.html', 'w', encoding='utf-8') as f:
+    f.write(html)

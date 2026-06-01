@@ -1308,10 +1308,8 @@
 }
 .login-screen::before {
   content: ""; position: absolute; inset: 0;
-  background: url('logos/wallpaper.webp') center center / cover no-repeat;
-  filter: blur(12px) saturate(1.1);
+  background: #2E4F3E;
   z-index: -1;
-  transform: scale(1.1); /* Prevent blurred edges */
 }
 .login-screen::after {
   content: ""; position: absolute; inset: 0;
@@ -1439,8 +1437,7 @@ body.locked {
 }
 .preloader::before {
   content: ""; position: absolute; inset: -5%;
-  background: url('logos/wallpaper.webp') center center / cover no-repeat;
-  filter: saturate(.85) contrast(1.05) blur(8px);
+  background: #2E4F3E;
   z-index: -1;
 }
 .preloader.hidden {
