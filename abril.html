@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gabriela Saueressig</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="junho.css?v=2.2"/>
+  <style>
+    /* Critical CSS to prevent flash of content */
+    .preloader {
+      position: fixed; inset: 0; background: #FAF7F5; z-index: 100000;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.6s, visibility 0.6s;
+    }
+    
+    /* Custom style overrides for Ximenas */
+    .hero-logo-text {
+      font-family: 'Fraunces', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: #ffffff;
+      margin: 1.5rem 0;
+      text-transform: uppercase;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .igp-avatar-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d4c5b9 0%, #b8a698 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .ig-ava-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d4c5b9 0%, #b8a698 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Fraunces', serif;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader" class="preloader">
+  <div class="loader-content" style="display:flex; flex-direction:column; align-items:center; gap:0;">
+    <div class="ig-ava-placeholder" style="width:86px; height:86px; overflow:hidden; border-radius:50%; box-shadow:0 8px 32px rgba(0,0,0,0.18);">
+      <img src="foto.webp" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;" alt="Gabriela Saueressig">
+    </div>
+    <div style="margin-top:14px; font-family:'Fraunces',serif; font-size:1rem; font-weight:300; letter-spacing:0.12em; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.25); text-align:center;">Gabriela Saueressig</div>
+    <div class="loader-bar-wrap" style="margin-top:18px;">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Tela de Login -->
+<div id="login-screen" class="login-screen">
+  <div class="login-box" style="position: relative; z-index: 10;">
+    <div class="ig-ava-placeholder" style="width:70px; height:70px; font-size:30px; font-weight:300; margin: 0 auto 15px; overflow:hidden;">
+      <img src="foto.webp" style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;" alt="Gabriela Saueressig">
+    </div>
+    <h2>Acesso ao Painel</h2>
+    <input type="text" id="login-user" placeholder="Usuário">
+    <input type="password" id="login-pass" placeholder="Senha">
+    <button id="login-btn">Entrar</button>
+    <div id="login-error" class="login-error"></div>
+  </div>
+  <div class="login-mini-footer">Desenvolvido por Duas Mãos</div>
+</div>
+
+
+<!-- ════════════════════════ GLOBAL BACKGROUNDS ════════════════════════ -->
+<div class="hero-bg" id="parallaxBg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-grain"></div>
+
+
+
+  <section class="hero" id="heroSec">
+    <div class="sticker-wrap" data-speed="0.15" style="top: 10%; left: 0%;">
+      <img src="duasmaos.webp" class="sticker" style="width: 100px; animation-delay: 0s; border-radius:50%">
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="dot"></span>Planejamento de conteúdo · Abril 2026</div>
+      <h1 class="hero-logo-text">Gabriela Saueressig</h1>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Revise, comente e aprove<br>os conteúdos abaixo</p>
+      <div class="hero-progress">
+        <div class="pb-wrap"><div class="pb-fill" id="pbFill" style="width:0%"></div></div>
+        <div class="pb-label" id="pbLabel"><strong>0</strong> de 6 aprovados</div>
+      </div>
+    </div>
+    <div class="hero-scroll" onclick="document.getElementById('infoPanelSection').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-line"></div>Rolar
+    </div>
+  </section>
+
+<!-- ════════════════════════ INFO PANEL (SEC: 2) ════════════════════════ -->
+<section id="infoPanelSection" class="info-container">
+  <div class="info-panel">
+    
+    <div class="info-eyebrow">Planejamento · Abril 2026</div>
+    <h2 class="info-title">Conteúdo para<br><em>revisão e aprovação</em></h2>
+    <div class="info-divider"></div>
+
+    <div class="info-grid-content">
+      <div class="info-summary-col">
+        <div class="info-row">
+          <div class="info-icon">📋</div>
+          <div>
+            <div class="info-label">Foco das postagens</div>
+            <div class="info-value">Apresentação de conteúdos estratégicos de posicionamento e portfólio.</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📅</div>
+          <div>
+            <div class="info-label">Status do projeto</div>
+            <div class="info-value">Aguardando aprovação das peças e textos de apoio.</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">⏰</div>
+          <div>
+            <div class="info-label">Prazo para aprovação</div>
+            <div class="info-value">Em aberto — responda quando preferir</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🎯</div>
+          <div>
+            <div class="info-label">Peças de conteúdo</div>
+            <div class="info-value">6 posts estratégicos</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-calendar-col">
+        <div class="calendar-wrapper">
+          <div class="calendar-header">
+            <div class="calendar-day-name">D</div>
+            <div class="calendar-day-name">S</div>
+            <div class="calendar-day-name">T</div>
+            <div class="calendar-day-name">Q</div>
+            <div class="calendar-day-name">Q</div>
+            <div class="calendar-day-name">S</div>
+            <div class="calendar-day-name">S</div>
+          </div>
+          <div class="calendar-grid">
+            <!-- Week 1 -->
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day">1</div>
+            <div class="calendar-day">2</div>
+            <!-- Week 2 -->
+            <div class="calendar-day">3</div>
+            <div class="calendar-day has-post" onclick="goToPost(0)" title="Post 1">
+              <img src="posts v2/Conteudo 1/Post 1 - 1.png" alt="Post 1">
+              <div class="day-number">4</div>
+            </div>
+            <div class="calendar-day">5</div>
+            <div class="calendar-day">6</div>
+            <div class="calendar-day has-post" onclick="goToPost(1)" title="Post 2">
+              <img src="posts v2/Conteudo 2/1.jpg" alt="Post 2">
+              <div class="day-number">7</div>
+            </div>
+            <div class="calendar-day">8</div>
+            <div class="calendar-day">9</div>
+            <!-- Week 3 -->
+            <div class="calendar-day">10</div>
+            <div class="calendar-day has-post" onclick="goToPost(2)" title="Post 3">
+              <video src="posts v2/Conteudo 3/1.mov" autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; pointer-events:none;"></video>
+              <div class="day-number">11</div>
+            </div>
+            <div class="calendar-day">12</div>
+            <div class="calendar-day">13</div>
+            <div class="calendar-day has-post" onclick="goToPost(4)" title="Post 5">
+              <img src="posts v2/COnteudo 5/Post 5 - 1.png" alt="Post 5">
+              <div class="day-number">14</div>
+            </div>
+            <div class="calendar-day">15</div>
+            <div class="calendar-day">16</div>
+            <!-- Week 4 -->
+            <div class="calendar-day">17</div>
+            <div class="calendar-day has-post" onclick="goToPost(3)" title="Post 4">
+              <img src="posts v2/Conteudo 4/26C54396-9E9F-4FB4-AE76-BA8BEADAC0A3.jpg" alt="Post 4">
+              <div class="day-number">18</div>
+            </div>
+            <div class="calendar-day">19</div>
+            <div class="calendar-day">20</div>
+            <div class="calendar-day">21</div>
+            <div class="calendar-day">22</div>
+            <div class="calendar-day">23</div>
+            <!-- Week 5 -->
+            <div class="calendar-day has-post" onclick="goToPost(5)" title="Post 6">
+              <img src="posts v2/Conteudo 6/Post 6 - 1.png" alt="Post 6">
+              <div class="day-number">24</div>
+            </div>
+            <div class="calendar-day">25</div>
+            <div class="calendar-day">26</div>
+            <div class="calendar-day">27</div>
+            <div class="calendar-day">28</div>
+            <div class="calendar-day">29</div>
+            <div class="calendar-day">30</div>
+            <!-- Week 6 -->
+            <div class="calendar-day">31</div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-progress">
+      <div class="info-label">Progresso de aprovação</div>
+      <div class="info-progress-bar">
+        <div class="info-progress-fill" id="infoFill" style="width:0%"></div>
+      </div>
+      <div class="info-progress-label">
+        <span id="infoCount">0 de 6 aprovados</span>
+        <button class="btn-clear" onclick="clearState()">↺ Limpar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ OVERVIEW ════════════════════════ -->
+<section class="overview-section" id="overview" style="position:relative;">
+  <div class="overview-split">
+
+    <!-- LEFT: IG Profile Replica -->
+    <div class="igp reveal">
+      <div class="igp-top">
+        <div class="igp-header-main">
+          
+          <div class="igp-avatar-ring">
+            <img src="foto.webp" alt="Gabriela Saueressig">
+          </div>
+          
+          <div class="igp-info-col">
+            
+            <div class="igp-user-row">
+              <span class="igp-username">gabrielasaueressig_</span>
+              <span class="igp-dots">···</span>
+            </div>
+            
+            <div class="igp-bio-name">
+              Gabriela Saueressig | Consultoria em Carreira
+            </div>
+            
+            <div class="igp-stats">
+              <div class="igp-stat"><div class="igp-stat-num">6</div><div class="igp-stat-lbl">posts</div></div>
+              <div class="igp-stat"><div class="igp-stat-num">1.2k</div><div class="igp-stat-lbl">seguidores</div></div>
+              <div class="igp-stat"><div class="igp-stat-num">950</div><div class="igp-stat-lbl">seguindo</div></div>
+            </div>
+
+            <div class="igp-bio">
+              Dor na relação não é normal!<br>Com avaliação adequada, é possível entender a causa e traçar o melhor tratamento pra cada caso.
+            </div>
+            <a href="#" class="igp-bio-link">🔗 linktr.ee/gabrielasaueressig_ e mais 1</a>
+            
+            <div class="igp-followed">
+              <div class="igp-followed-pics">
+                <img src="duasmaos.webp" alt="dduasmaos" onerror="this.style.cssText='background:#a0c0d0;border-radius:50%'" loading="lazy" decoding="async">
+              </div>
+              
+            </div>
+
+            <div class="igp-actions">
+              <button class="igp-btn">Seguindo ▾</button>
+              <button class="igp-btn">Enviar mensagem</button>
+              <button class="igp-btn-add">👤⁺</button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="igp-highlights">
+          <div class="igp-hl">
+            <div class="igp-hl-circle" style="border:2px solid var(--purple)">
+              <img src="destaque 1.jpg" alt="Comece Aqui" onerror="this.parentNode.textContent='🌱'">
+            </div>
+            <div class="igp-hl-label">Comece Aqui</div>
+          </div>
+          <div class="igp-hl">
+            <div class="igp-hl-circle" style="border:2px solid var(--rose)">
+              <img src="destaque 2.jpg" alt="Agende" onerror="this.parentNode.textContent='📅'">
+            </div>
+            <div class="igp-hl-label">Agende</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="igp-tabs">
+        <div class="igp-tab active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <div class="igp-tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M10 8l6 4-6 4V8z"/></svg>
+        </div>
+        <div class="igp-tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 2v6h6M21.5 22v-6h-6"/><path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.3"/></svg>
+        </div>
+        <div class="igp-tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+        </div>
+      </div>
+
+      
+      <div class="igp-grid">
+        <div class="igp-grid-item" onclick="openLightbox('1')">
+          <img src="posts abril/Post 1 - 1.webp" alt="Post 1" loading="lazy" decoding="async">
+          <span class="grid-num">01</span>
+        </div>
+        <div class="igp-grid-item" onclick="openLightbox('2')">
+          <img src="posts abril/Post 2 - 1.webp" alt="Post 2" loading="lazy" decoding="async">
+          <span class="grid-num">02</span>
+        </div>
+        <div class="igp-grid-item" onclick="openLightbox('3')">
+          <img src="posts abril/Post 3.webp" alt="Post 3" loading="lazy" decoding="async">
+          <span class="grid-num">03</span>
+        </div>
+        <div class="igp-grid-item" onclick="openLightbox('4')">
+          <img src="posts abril/Post 4 - 1.webp" alt="Post 4" loading="lazy" decoding="async">
+          <span class="grid-num">04</span>
+        </div>
+        <div class="igp-grid-item" onclick="openLightbox('5')">
+          <img src="posts abril/Post 5 - 1.webp" alt="Post 5" loading="lazy" decoding="async">
+          <span class="grid-num">05</span>
+        </div>
+        <div class="igp-grid-item" onclick="openLightbox('6')">
+          <img src="posts abril/Post 6 - 1.webp" alt="Post 6" loading="lazy" decoding="async">
+          <span class="grid-num">06</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ POSTS CAROUSEL ════════════════════════ -->
+<section class="posts-carousel-main" id="mainPostsCarousel">
+  <button class="pc-nav pc-prev" onclick="moveMainPosts(-1)">‹</button>
+  <button class="pc-nav pc-next" onclick="moveMainPosts(1)">›</button>
+
+  <!-- POST INDICATOR -->
+  <div class="post-indicator" id="postIndicator">
+    <div class="pi-item active" data-idx="0" onclick="goToPost(0)">1</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="1" onclick="goToPost(1)">2</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="2" onclick="goToPost(2)">3</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="3" onclick="goToPost(3)">4</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="4" onclick="goToPost(4)">5</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="5" onclick="goToPost(5)">6</div>
+  </div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="1" onclick="goToPost(1)">2</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="2" onclick="goToPost(2)">3</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="3" onclick="goToPost(3)">4</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="4" onclick="goToPost(4)">5</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="5" onclick="goToPost(5)">6</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="6" onclick="goToPost(6)">7</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="7" onclick="goToPost(7)">8</div>
+  </div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="1" onclick="goToPost(1)">2</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="2" onclick="goToPost(2)">3</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="3" onclick="goToPost(3)">4</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="4" onclick="goToPost(4)">5</div>
+    <div class="pi-sep">–</div>
+    <div class="pi-item" data-idx="5" onclick="goToPost(5)">6</div>
+  </div>
+
+  <div class="posts-horizontal-track" id="mainPostsTrack">
+
+<!-- ══ POST 1 ══ -->
+<section class="post-section" id="sec-1" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">1</div> Post 1</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-1">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('1')">
+          <div class="ig-track" id="itrack-1">
+            <div class="ig-slide"><img src="posts abril/Post 1 - 1.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 1 - 2.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 1 - 3.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 1 - 4.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 1 - 5.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 1 - 6.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 1 - 7.webp" loading="lazy" decoding="async"></div>
+            
+          </div>
+          <div class="ig-dots" id="idots-1"></div>
+          <button class="ig-arrow prev" onclick="igSlide('1', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('1', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-1">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 01 — <em>Post 1</em></h3>
+        <div class="sb sb-none" id="badge-1"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Dor na relação não é normal!<br>Com avaliação adequada, é possível entender a causa e traçar o melhor tratamento pra cada caso.
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-1">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-1" onclick="event.stopPropagation(); setStatus('1','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-1" onclick="event.stopPropagation(); setStatus('1','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-1" onclick="event.stopPropagation(); openReviewModal('1')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-1" onclick="event.stopPropagation(); openCommentsModal('1')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 2 ══ -->
+<section class="post-section" id="sec-2" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">2</div> Post 2</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-2">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('2')">
+          <div class="ig-track" id="itrack-2">
+            <div class="ig-slide"><img src="posts abril/Post 2 - 1.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 2 - 2.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 2 - 3.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 2 - 4.webp" loading="lazy" decoding="async"></div>
+            
+          </div>
+          <div class="ig-dots" id="idots-2"></div>
+          <button class="ig-arrow prev" onclick="igSlide('2', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('2', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-2">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 02 — <em>Post 2</em></h3>
+        <div class="sb sb-none" id="badge-2"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> É normal sair um cheiro "sujo"...
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-2">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-2" onclick="event.stopPropagation(); setStatus('2','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-2" onclick="event.stopPropagation(); setStatus('2','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-2" onclick="event.stopPropagation(); openReviewModal('2')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-2" onclick="event.stopPropagation(); openCommentsModal('2')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 3 ══ -->
+<section class="post-section" id="sec-3" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">3</div> Post 3</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-3">Imagem</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('3')">
+          <img src="posts abril/Post 3.webp" style="width:100%; height:auto; display:block;" alt="Post 3" loading="lazy">
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-3">Imagem</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 03 — <em>Post 3</em></h3>
+        <div class="sb sb-none" id="badge-3"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> A menstruação limpa o corpo?
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-3">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-3" onclick="event.stopPropagation(); setStatus('3','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-3" onclick="event.stopPropagation(); setStatus('3','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-3" onclick="event.stopPropagation(); openReviewModal('3')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-3" onclick="event.stopPropagation(); openCommentsModal('3')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 4 ══ -->
+<section class="post-section" id="sec-4" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">4</div> Post 4</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-4">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('4')">
+          <div class="ig-track" id="itrack-4">
+            <div class="ig-slide"><img src="posts abril/Post 4 - 1.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 4 - 2.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 4 - 3.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 4 - 4.webp" loading="lazy" decoding="async"></div>
+            
+          </div>
+          <div class="ig-dots" id="idots-4"></div>
+          <button class="ig-arrow prev" onclick="igSlide('4', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('4', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-4">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 04 — <em>Post 4</em></h3>
+        <div class="sb sb-none" id="badge-4"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Candidíase de repetição
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-4">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-4" onclick="event.stopPropagation(); setStatus('4','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-4" onclick="event.stopPropagation(); setStatus('4','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-4" onclick="event.stopPropagation(); openReviewModal('4')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-4" onclick="event.stopPropagation(); openCommentsModal('4')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 5 ══ -->
+<section class="post-section" id="sec-5" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">5</div> Post 5</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-5">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('5')">
+          <div class="ig-track" id="itrack-5">
+            <div class="ig-slide"><img src="posts abril/Post 5 - 1.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 5 - 2.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 5 - 3.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 5 - 4.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 5 - 5.webp" loading="lazy" decoding="async"></div>
+            
+          </div>
+          <div class="ig-dots" id="idots-5"></div>
+          <button class="ig-arrow prev" onclick="igSlide('5', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('5', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-5">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 05 — <em>Post 5</em></h3>
+        <div class="sb sb-none" id="badge-5"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Vacina HPV
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-5">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-5" onclick="event.stopPropagation(); setStatus('5','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-5" onclick="event.stopPropagation(); setStatus('5','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-5" onclick="event.stopPropagation(); openReviewModal('5')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-5" onclick="event.stopPropagation(); openCommentsModal('5')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 6 ══ -->
+<section class="post-section" id="sec-6" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">6</div> Post 6</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-6">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('6')">
+          <div class="ig-track" id="itrack-6">
+            <div class="ig-slide"><img src="posts abril/Post 6 - 1.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 6 - 2.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 6 - 3.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 6 - 4.webp" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts abril/Post 6 - 5.webp" loading="lazy" decoding="async"></div>
+            
+          </div>
+          <div class="ig-dots" id="idots-6"></div>
+          <button class="ig-arrow prev" onclick="igSlide('6', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('6', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-6">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 06 — <em>Post 6</em></h3>
+        <div class="sb sb-none" id="badge-6"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Mioma e cirurgias
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-6">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-6" onclick="event.stopPropagation(); setStatus('6','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-6" onclick="event.stopPropagation(); setStatus('6','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-6" onclick="event.stopPropagation(); openReviewModal('6')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-6" onclick="event.stopPropagation(); openCommentsModal('6')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+</div>
+</section>
+
+<!-- ══ POST 2 ══ -->
+<section class="post-section" id="sec-2" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">2</div> Post 2</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-2">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('2')">
+          <div class="ig-track" id="itrack-2">
+            <div class="ig-slide"><img src="Junho/Post 2/Post 2 - 1.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 2/Post 2 - 2.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 2/Post 2 - 3.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 2/Post 2 - 4.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 2/Post 2 - 5_1.png" loading="lazy" decoding="async"></div>
+            
+          </div>
+          <div class="ig-dots" id="idots-2"></div>
+          <button class="ig-arrow prev" onclick="igSlide('2', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('2', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-2">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 02 — <em>Post 2</em></h3>
+        <div class="sb sb-none" id="badge-2"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Coisas que ouvimos por aí que não aguento mais…
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-2">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-2" onclick="event.stopPropagation(); setStatus('2','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-2" onclick="event.stopPropagation(); setStatus('2','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-2" onclick="event.stopPropagation(); openReviewModal('2')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-2" onclick="event.stopPropagation(); openCommentsModal('2')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 3 ══ -->
+<section class="post-section" id="sec-3" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">3</div> Post 3</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-3">Vídeo</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('3')">
+          <div style="width:100%; height:100%; min-height:400px; aspect-ratio:9/16; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; text-align:center; padding:20px; font-family:sans-serif;">Vídeo 3 pendente de upload</div>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-3">Vídeo</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 03 — <em>Post 3</em></h3>
+        <div class="sb sb-none" id="badge-3"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> “Meu Deus, eu tenho HPV, que vergonha!”
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-3">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-3" onclick="event.stopPropagation(); setStatus('3','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-3" onclick="event.stopPropagation(); setStatus('3','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-3" onclick="event.stopPropagation(); openReviewModal('3')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-3" onclick="event.stopPropagation(); openCommentsModal('3')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 4 ══ -->
+<section class="post-section" id="sec-4" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">4</div> Post 4</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-4">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('4')">
+          <div class="ig-track" id="itrack-4">
+            <div class="ig-slide"><img src="Junho/Post 4/Post 4 - 1.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 4/Post 4 - 2.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 4/Post 4 - 3.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 4/Post 4 - 4.png" loading="lazy" decoding="async"></div>
+            
+          </div>
+          <div class="ig-dots" id="idots-4"></div>
+          <button class="ig-arrow prev" onclick="igSlide('4', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('4', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-4">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 04 — <em>Post 4</em></h3>
+        <div class="sb sb-none" id="badge-4"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Posso ter relação depois de uma cirurgia ginecológica?
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-4">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-4" onclick="event.stopPropagation(); setStatus('4','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-4" onclick="event.stopPropagation(); setStatus('4','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-4" onclick="event.stopPropagation(); openReviewModal('4')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-4" onclick="event.stopPropagation(); openCommentsModal('4')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 5 ══ -->
+<section class="post-section" id="sec-5" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">5</div> Post 5</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-5">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('5')">
+          <div style="width:100%; height:100%; min-height:400px; aspect-ratio:4/5; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; text-align:center; padding:20px; font-family:sans-serif;">Imagens do Post 5<br>pendentes de upload</div>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-5">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 05 — <em>Post 5</em></h3>
+        <div class="sb sb-none" id="badge-5"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Espaço para Gabi: Dúvida comum do consultório
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-5">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-5" onclick="event.stopPropagation(); setStatus('5','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-5" onclick="event.stopPropagation(); setStatus('5','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-5" onclick="event.stopPropagation(); openReviewModal('5')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-5" onclick="event.stopPropagation(); openCommentsModal('5')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 6 ══ -->
+<section class="post-section" id="sec-6" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">6</div> Post 6</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-6">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('6')">
+          <div class="ig-track" id="itrack-6">
+            <div class="ig-slide"><img src="Junho/Post 6/Post 6 - 1.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 6/Post 6 - 2.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 6/Post 6 - 3.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 6/Post 6 - 4.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 6/Post 6 - 5.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="Junho/Post 6/Post 6 -6.png" loading="lazy" decoding="async"></div>
+            
+          </div>
+          <div class="ig-dots" id="idots-6"></div>
+          <button class="ig-arrow prev" onclick="igSlide('6', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('6', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-6">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 06 — <em>Post 6</em></h3>
+        <div class="sb sb-none" id="badge-6"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Mioma: operar ou não operar?
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-6">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-6" onclick="event.stopPropagation(); setStatus('6','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-6" onclick="event.stopPropagation(); setStatus('6','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-6" onclick="event.stopPropagation(); openReviewModal('6')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-6" onclick="event.stopPropagation(); openCommentsModal('6')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 7 ══ -->
+<section class="post-section" id="sec-7" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">7</div> Post 7</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-7">Imagem</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('7')">
+          <img src="Junho/Post 7/Post 7.png" style="width:100%; height:auto; display:block;" alt="Post 7" loading="lazy">
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-7">Imagem</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 07 — <em>Post 7</em></h3>
+        <div class="sb sb-none" id="badge-7"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Investimentos para a sua saúde em 2026
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-7">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-7" onclick="event.stopPropagation(); setStatus('7','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-7" onclick="event.stopPropagation(); setStatus('7','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-7" onclick="event.stopPropagation(); openReviewModal('7')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-7" onclick="event.stopPropagation(); openCommentsModal('7')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 8 ══ -->
+<section class="post-section" id="sec-8" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">8</div> Post 8</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-8">Vídeo</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('8')">
+          <div style="width:100%; height:100%; min-height:400px; aspect-ratio:9/16; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; text-align:center; padding:20px; font-family:sans-serif;">Vídeo 8 pendente de upload</div>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-8">Vídeo</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 08 — <em>Post 8</em></h3>
+        <div class="sb sb-none" id="badge-8"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Quanto tempo vou ficar parada depois da cirurgia?
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-8">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-8" onclick="event.stopPropagation(); setStatus('8','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-8" onclick="event.stopPropagation(); setStatus('8','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-8" onclick="event.stopPropagation(); openReviewModal('8')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-8" onclick="event.stopPropagation(); openCommentsModal('8')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+</div>
+</section>
+
+<!-- ══ POST 2 ══ -->
+<section class="post-section" id="sec-2" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">2</div> Post 2</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-2">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('2')">
+          <div class="ig-track" id="itrack-2">
+            <div class="ig-slide"><img src="posts v2/Conteudo 2/1.jpg" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts v2/Conteudo 2/2.jpg" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts v2/Conteudo 2/3.jpg" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts v2/Conteudo 2/4.jpg" loading="lazy" decoding="async"></div>
+          </div>
+          <div class="ig-dots" id="idots-2"></div>
+          <button class="ig-arrow prev" onclick="igSlide('2', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('2', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-2">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 02 — <em>Post 2</em></h3>
+        <div class="sb sb-none" id="badge-2"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> 👆
+      </div>
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-2">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-2" onclick="event.stopPropagation(); setStatus('2','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-2" onclick="event.stopPropagation(); setStatus('2','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-2" onclick="event.stopPropagation(); openReviewModal('2')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-2" onclick="event.stopPropagation(); openCommentsModal('2')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 3 ══ -->
+<section class="post-section" id="sec-3" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">3</div> Post 3</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-3">Vídeo</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('3')">
+          <video src="posts v2/Conteudo 3/1.mov" autoplay muted loop playsinline style="width:100%; height:auto; display:block; object-fit:contain;"></video>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-3">Vídeo</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 03 — <em>Post 3</em></h3>
+        <div class="sb sb-none" id="badge-3"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> POV: você tem muitas dúvidas na sua carreira e agora você vai conhecer algumas coisas que ouço de executivos de empresas <br><br>1 Fiquei mil anos dentro de uma empresa e nunca fiz networking. Agora que eu preciso, não sei como fazer isso.<br><br>2 Tenho dúvidas sobre o meu próximo passo, se eu continuo na carreira executiva ou migro para outro formato de atuação.<br><br>3 Depois de tanto tempo na empresa, não tenho referência de remuneração no mercado.<br><br>4 Estar à frente de um recrutador é difícil, porque já estive do lado da mesa, e agora não sei como me comportar.
+      </div>
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-3">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-3" onclick="event.stopPropagation(); setStatus('3','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-3" onclick="event.stopPropagation(); setStatus('3','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-3" onclick="event.stopPropagation(); openReviewModal('3')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-3" onclick="event.stopPropagation(); openCommentsModal('3')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 4 ══ -->
+<section class="post-section" id="sec-4" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">4</div> Post 4</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-4">Imagem</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('4')">
+          <img src="posts v2/Conteudo 4/26C54396-9E9F-4FB4-AE76-BA8BEADAC0A3.jpg" style="width:100%; height:auto; display:block;" alt="Post 4">
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-4">Imagem</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 04 — <em>Post 4</em></h3>
+        <div class="sb sb-none" id="badge-4"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> Card 1: As pessoas mais influentes que conheci na minha trajetória têm uma coisa em comum que me levou um tempo para nomear: elas nunca precisam convencer ninguém. E é exatamente isso que convence.<br><br>Legenda:<br>Quando alguém chega com urgência, com necessidade de aprovação, com energia de "eu preciso que você me ajude", é normal que o outro recue instintivamente, mas quando alguém apresenta a si mesmo com confiança e firmeza, o interlocutor entende como ele contribui, assim iniciando um canal de reciprocidade.
+      </div>
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-4">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-4" onclick="event.stopPropagation(); setStatus('4','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-4" onclick="event.stopPropagation(); setStatus('4','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-4" onclick="event.stopPropagation(); openReviewModal('4')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-4" onclick="event.stopPropagation(); openCommentsModal('4')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 5 ══ -->
+
+<section class="post-section" id="sec-5" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">5</div> Post 5</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-5">Carrossel</div>
+        </div>
+        <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('5')">
+          <div class="ig-track" id="itrack-5">
+            <div class="ig-slide"><img src="posts v2/COnteudo 5/Post 5 - 1.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts v2/COnteudo 5/Post 5 - 2.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts v2/COnteudo 5/Post 5 - 3.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts v2/COnteudo 5/Post 5 - 4.png" loading="lazy" decoding="async"></div>
+            <div class="ig-slide"><img src="posts v2/COnteudo 5/Post 5 - 5.png" loading="lazy" decoding="async"></div>
+          </div>
+          <div class="ig-dots" id="idots-5"></div>
+          <button class="ig-arrow prev" onclick="igSlide('5', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('5', 1)">›</button>
+        </div>
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-5">Carrossel</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 05 — <em>Post 5</em></h3>
+        <div class="sb sb-none" id="badge-5"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> O tal do networking... Quero te contar o que eu aprendi sobre ele nestes anos de LHH! 😊
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-5">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-5" onclick="event.stopPropagation(); setStatus('5','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-5" onclick="event.stopPropagation(); setStatus('5','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-5" onclick="event.stopPropagation(); openReviewModal('5')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-5" onclick="event.stopPropagation(); openCommentsModal('5')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POST 6 ══ -->
+
+<section class="post-section" id="sec-6" style="position:relative;">
+  <div class="post-split">
+      <div class="reveal">
+        <div class="post-num-badge"><div class="pnb-dot">6</div> Post 6</div>
+        <div class="ig-phone">
+          <div class="ig-bar">
+            <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+            <div><div class="ig-handle">gabrielasaueressig_</div></div>
+            <div class="ig-type" id="type-6">Carrossel</div>
+          </div>
+          <div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('6')">
+            <div class="ig-track" id="itrack-6">
+              <div class="ig-slide"><img src="posts v2/Conteudo 6/Post 6 - 1.png" loading="lazy" decoding="async"></div>
+              <div class="ig-slide"><img src="posts v2/Conteudo 6/Post 6 - 2.png" loading="lazy" decoding="async"></div>
+              <div class="ig-slide"><img src="posts v2/Conteudo 6/Post 6 - 3.png" loading="lazy" decoding="async"></div>
+              <div class="ig-slide"><img src="posts v2/Conteudo 6/Post 6 - 4.png" loading="lazy" decoding="async"></div>
+              <div class="ig-slide"><img src="posts v2/Conteudo 6/Post 6 - 5.png" loading="lazy" decoding="async"></div>
+              <div class="ig-slide"><img src="posts v2/Conteudo 6/Post 6 - 6.png" loading="lazy" decoding="async"></div>
+              <div class="ig-slide"><img src="posts v2/Conteudo 6/Post 6 - 7.png" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="ig-dots" id="idots-6"></div>
+            <button class="ig-arrow prev" onclick="igSlide('6', -1)">‹</button>
+            <button class="ig-arrow next" onclick="igSlide('6', 1)">›</button>
+          </div>
+          <div class="ig-foot">
+            <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+          </div>
+        </div>
+      </div>
+      <div class="post-panel reveal" style="transition-delay:.1s">
+        <div class="post-head">
+          <div class="post-eyebrow">
+            <span id="eyebrow-6">Carrossel</span>
+            <span class="v3-badge">v1</span>
+          </div>
+          <h3 class="post-title">Peça 06 — <em>Post 6</em></h3>
+          <div class="sb sb-none" id="badge-6"><span class="sbp"></span>Aguardando</div>
+        </div>
+
+        <div class="blk-label">Legenda</div>
+        <div class="caption-blk">
+          <span class="handle">gabrielasaueressig_</span> Um compilado importante do que esses 10 anos me mostraram!
+        </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-6">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-6" onclick="event.stopPropagation(); setStatus('6','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-6" onclick="event.stopPropagation(); setStatus('6','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-6" onclick="event.stopPropagation(); openReviewModal('6')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-6" onclick="event.stopPropagation(); openCommentsModal('6')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+
+</div>
+</section>
+
+<!-- Modal de Erro Persistente -->
+<div id="error-modal" class="error-modal">
+  <div class="error-content">
+    <button class="error-close" id="closeErrorModal" onclick="document.getElementById('error-modal').classList.remove('open')">&times;</button>
+    <div style="font-size: 40px; margin-bottom: 15px;">⚠️</div>
+    <h3 style="margin-bottom: 10px; font-family: 'Canela', serif;">Erro no Servidor</h3>
+    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Não foi possível completar a ação. Por favor, copie a mensagem de erro abaixo:</p>
+    <div id="error-message-text" style="background: #f8f8f8; padding: 15px; border-radius: 12px; font-family: monospace; font-size: 13px; color: #d00; margin-bottom: 20px; word-break: break-all; text-align: left; border: 1px solid #eee;"></div>
+    <button class="abtn btn-ap" style="width: 100%;" onclick="document.getElementById('error-modal').classList.remove('open')">Entendido</button>
+  </div>
+</div>
+<!-- ════════════════════════ DOWNLOADS ════════════════════════ -->
+<section class="downloads-section">
+  <div class="downloads-inner">
+    <div class="downloads-eyebrow">📥 Arquivos originais</div>
+    <h2 class="downloads-title">Baixar <em>conteúdos</em></h2>
+    <div class="downloads-divider"></div>
+    <div class="downloads-grid">
+      <a href="#" class="dl-card dl-all">
+        <div class="dl-icon">📁</div>
+        <div class="dl-info">
+          <div class="dl-label">Todos os conteúdos</div>
+          <div class="dl-sub">Pasta completa</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>
+
+      <a href="#" class="dl-card">
+        <div class="dl-num">01</div>
+        <div class="dl-info">
+          <div class="dl-label">Post 1</div>
+          <div class="dl-sub">Baixar Arquivo</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>
+      <a href="#" class="dl-card">
+        <div class="dl-num">02</div>
+        <div class="dl-info">
+          <div class="dl-label">Post 2</div>
+          <div class="dl-sub">Baixar Arquivo</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>
+      <a href="#" class="dl-card">
+        <div class="dl-num">03</div>
+        <div class="dl-info">
+          <div class="dl-label">Post 3</div>
+          <div class="dl-sub">Baixar Arquivo</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>
+      <a href="#" class="dl-card">
+        <div class="dl-num">04</div>
+        <div class="dl-info">
+          <div class="dl-label">Post 4</div>
+          <div class="dl-sub">Baixar Arquivo</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>
+      <a href="#" class="dl-card">
+        <div class="dl-num">05</div>
+        <div class="dl-info">
+          <div class="dl-label">Post 5</div>
+          <div class="dl-sub">Baixar Arquivo</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>
+      <a href="#" class="dl-card">
+        <div class="dl-num">06</div>
+        <div class="dl-info">
+          <div class="dl-label">Post 6</div>
+          <div class="dl-sub">Baixar Arquivo</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bg"></div>
+  <div class="footer-grain"></div>
+  <div class="footer-content">
+    <p class="footer-title">Obri<em>gada!</em></p>
+    <div class="footer-div"></div>
+    <p class="footer-body">Fique à vontade para enviar qualquer feedback adicional.<br>Isso nos ajuda a evoluir cada detalhe do seu projeto.</p>
+    <div class="footer-summary">
+      <div class="fs-item"><div class="fs-num green" id="f-approved">0</div><div class="fs-lbl">Aprovados</div></div>
+      <div class="fs-item"><div class="fs-num yellow" id="f-pending">6</div><div class="fs-lbl">Pendentes</div></div>
+      <div class="fs-item"><div class="fs-num wine" id="f-rejected">0</div><div class="fs-lbl">Reprovados</div></div>
+    </div>
+    <p class="footer-sig" style="margin-top:36px">Criado com cuidado pela <strong>Duas Mãos.</strong></p>
+  </div>
+</footer>
+
+<div id="toast"><span class="ti" id="ti"></span><span class="tm" id="tm"></span></div>
+
+
+
+
+<!-- ════════════════════════ LIGHTBOX ════════════════════════ -->
+<div id="lightbox">
+  <div class="lb-backdrop" onclick="closeLightbox()"></div>
+  <div class="lb-split">
+    <div class="lb-left">
+      <div class="lb-slice-container">
+        <div class="lb-track" id="lbTrack"></div>
+      </div>
+      <button class="lb-left-prev" id="lbPrev" onclick="lbSlide(-1)">‹</button>
+      <button class="lb-left-next" id="lbNext" onclick="lbSlide(1)">›</button>
+      <div class="lb-dots" id="lbDots"></div>
+    </div>
+    <div class="lb-right">
+      <div class="lb-rh">
+        <div class="lb-rh-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+        <div class="lb-rh-name">gabrielasaueressig_</div>
+        <button class="lb-rh-close" onclick="closeLightbox()">✕</button>
+      </div>
+      <div class="lb-rbody">
+        <div class="lb-rcaption" id="lbCaption"></div>
+        <div class="lb-rcards" id="lbCards"></div>
+        <div class="lb-rdiv"></div>
+        <div class="lb-rfeedback-lbl">Feedback do Cliente</div>
+        <div id="lbCommentsList"></div>
+      </div>
+      <div class="lb-raction-row" id="lbActionRow">
+        <!-- populated by JS -->
+      </div>
+      <div class="lb-rcomment-input">
+        <textarea id="lbTextarea" placeholder="Escreva um comentário..."></textarea>
+        <button class="lb-rpost-btn" onclick="lbSendComment()">Publicar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- REVIEW MODAL -->
+<div id="reviewModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3>Solicitar Revisão</h3>
+      <button class="modal-close" onclick="closeReviewModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p>O que precisa ser ajustado neste conteúdo?</p>
+      <textarea id="reviewTextarea" rows="4" placeholder="Descreva aqui os pontos que precisam de atenção..."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn btn-sec" onclick="closeReviewModal()">Cancelar</button>
+      <button class="modal-btn btn-pri" id="confirmReviewBtn">Confirmar Revisão</button>
+    </div>
+  </div>
+</div>
+
+<!-- COMMENTS HISTORY MODAL -->
+<div id="commentsModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3>Histórico de Comentários</h3>
+      <button class="modal-close" onclick="closeCommentsModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="modalCommentsList" class="modal-comments-list">
+        <!-- Will be populated by JS -->
+      </div>
+      <div class="modal-input-area">
+        <textarea id="modalCommentInput" rows="2" placeholder="Adicione um novo comentário..."></textarea>
+        <button class="modal-btn btn-pri" id="modalSendCommentBtn">Enviar Comentário</button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn btn-sec" onclick="closeCommentsModal()">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- HIDDEN DATA PERSISTENCE -->
+<div id="hiddenCommentsData" style="display:none">
+  <div id="comments-1"></div>
+  <div id="comments-2"></div>
+  <div id="comments-3"></div>
+  <div id="comments-4"></div>
+  <div id="comments-5"></div>
+  <div id="comments-6"></div>
+  
+</div>
+  <div id="comments-2"></div>
+  <div id="comments-3"></div>
+  <div id="comments-4"></div>
+  <div id="comments-5"></div>
+  <div id="comments-6"></div>
+  <div id="comments-7"></div>
+  <div id="comments-8"></div>
+  
+</div>
+  <div id="comments-2"></div>
+  <div id="comments-3"></div>
+  <div id="comments-4"></div>
+  <div id="comments-5"></div>
+  <div id="comments-6"></div>
+</div>
+
+<!-- ═══════════════ PROJECT VIEWER ═══════════════ -->
+<div id="projectViewer">
+  <div class="pv-header">
+    <div class="pv-title-box">
+      <h2 id="pvTitle">Projects: Comece Aqui</h2>
+      <button class="pv-back" onclick="closeProject()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <div class="pv-content" id="pvContent">
+    <!-- Will be populated by JS -->
+  </div>
+
+  <div class="pv-footer-back">
+    <div class="pv-content" style="padding-top:0; padding-bottom:100px;">
+      <button class="pv-back" onclick="closeProject()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script defer src="abril.js"></script>
+</body>
+</html>

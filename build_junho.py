@@ -1,0 +1,202 @@
+import re
+import os
+
+with open('/Users/luxfajah/gabriela/junho.html', 'r', encoding='utf-8') as f:
+    html = f.read()
+
+# Basic replacements
+html = html.replace('Juliana Ximendes', 'Gabriela Saueressig')
+html = html.replace('juximendes', 'gabrielasaueressig_')
+html = html.replace('style.css?v=2.2', 'junho.css?v=2.2')
+html = html.replace('script.js', 'junho.js')
+html = html.replace('logos/Foto de perfil.jpg', 'foto.webp')
+html = html.replace('0 de 6 aprovados', '0 de 8 aprovados')
+html = html.replace('6 posts', '8 posts')
+html = html.replace('Planejamento de conteúdo · 2026', 'Planejamento de conteúdo · Junho 2026')
+html = html.replace('Planejamento · 2026', 'Planejamento · Junho 2026')
+html = html.replace('6 posts estratégicos', '8 posts estratégicos')
+html = html.replace('id="f-pending">6<', 'id="f-pending">8<')
+
+# Profile Bio
+html = html.replace('Juliana Ximendes | Consultoria em Carreira', 'Gabriela Saueressig | Ginecologia & Cirurgia Ginecológica')
+html = html.replace('Carreira é escolha consciente. Eu te mostro porquê.<br>\n              Vendas é postura. Eu te mostro o porquê.', 'Dor na relação não é normal!<br>Com avaliação adequada, é possível entender a causa e traçar o melhor tratamento pra cada caso.')
+html = html.replace('🔗 linktr.ee/juximendes e mais 1', '🔗 linktr.ee/ginecogabrielasaueressig')
+html = html.replace('Seguido(a) por <strong>dduasmaos</strong>', '')
+html = html.replace('dduasmaos.webp', 'duasmaos.webp') # if any
+
+posts_data = [
+    {
+        'id': '1', 'title': 'Post 1', 'type': 'Vídeo', 'caption': 'Engravidar tomando a pílula? Isso realmente acontece?', 
+        'media': '<div style="width:100%; height:100%; min-height:400px; aspect-ratio:9/16; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; text-align:center; padding:20px; font-family:sans-serif;">Vídeo 1 pendente de upload</div>',
+        'grid_media': '<div style="width:100%; height:100%; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; font-size:12px; text-align:center;">Vídeo 1<br>Pendente</div>'
+    },
+    {
+        'id': '2', 'title': 'Post 2', 'type': 'Carrossel', 'caption': 'Coisas que ouvimos por aí que não aguento mais…',
+        'slides': ['Post 2 - 1.png', 'Post 2 - 2.png', 'Post 2 - 3.png', 'Post 2 - 4.png', 'Post 2 - 5_1.png'],
+        'folder': 'Junho/Post 2'
+    },
+    {
+        'id': '3', 'title': 'Post 3', 'type': 'Vídeo', 'caption': '“Meu Deus, eu tenho HPV, que vergonha!”',
+        'media': '<div style="width:100%; height:100%; min-height:400px; aspect-ratio:9/16; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; text-align:center; padding:20px; font-family:sans-serif;">Vídeo 3 pendente de upload</div>',
+        'grid_media': '<div style="width:100%; height:100%; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; font-size:12px; text-align:center;">Vídeo 3<br>Pendente</div>'
+    },
+    {
+        'id': '4', 'title': 'Post 4', 'type': 'Carrossel', 'caption': 'Posso ter relação depois de uma cirurgia ginecológica?',
+        'slides': ['Post 4 - 1.png', 'Post 4 - 2.png', 'Post 4 - 3.png', 'Post 4 - 4.png'],
+        'folder': 'Junho/Post 4'
+    },
+    {
+        'id': '5', 'title': 'Post 5', 'type': 'Carrossel', 'caption': 'Espaço para Gabi: Dúvida comum do consultório',
+        'media': '<div style="width:100%; height:100%; min-height:400px; aspect-ratio:4/5; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; text-align:center; padding:20px; font-family:sans-serif;">Imagens do Post 5<br>pendentes de upload</div>',
+        'grid_media': '<div style="width:100%; height:100%; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; font-size:12px; text-align:center;">Post 5<br>Pendente</div>'
+    },
+    {
+        'id': '6', 'title': 'Post 6', 'type': 'Carrossel', 'caption': 'Mioma: operar ou não operar?',
+        'slides': ['Post 6 - 1.png', 'Post 6 - 2.png', 'Post 6 - 3.png', 'Post 6 - 4.png', 'Post 6 - 5.png', 'Post 6 -6.png'],
+        'folder': 'Junho/Post 6'
+    },
+    {
+        'id': '7', 'title': 'Post 7', 'type': 'Imagem', 'caption': 'Investimentos para a sua saúde em 2026',
+        'media': '<img src="Junho/Post 7/Post 7.png" style="width:100%; height:auto; display:block;" alt="Post 7" loading="lazy">',
+        'grid_media': '<img src="Junho/Post 7/Post 7.png" alt="Post 7" loading="lazy" decoding="async">'
+    },
+    {
+        'id': '8', 'title': 'Post 8', 'type': 'Vídeo', 'caption': 'Quanto tempo vou ficar parada depois da cirurgia?',
+        'media': '<div style="width:100%; height:100%; min-height:400px; aspect-ratio:9/16; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; text-align:center; padding:20px; font-family:sans-serif;">Vídeo 8 pendente de upload</div>',
+        'grid_media': '<div style="width:100%; height:100%; background:#e0e0e0; display:flex; align-items:center; justify-content:center; color:#555; font-size:12px; text-align:center;">Vídeo 8<br>Pendente</div>'
+    }
+]
+
+# Generate IGP Grid (the 3xN grid on the profile replica)
+igp_grid_html = ""
+for idx, p in enumerate(posts_data):
+    if 'slides' in p:
+        img_src = f"{p['folder']}/{p['slides'][0]}"
+        grid_media = f'<img src="{img_src}" alt="{p["title"]}" loading="lazy" decoding="async">'
+    else:
+        grid_media = p['grid_media']
+    
+    igp_grid_html += f"""
+        <div class="igp-grid-item" onclick="openLightbox('{p['id']}')">
+          {grid_media}
+          <span class="grid-num">0{p['id']}</span>
+        </div>"""
+
+# Replace the igp-grid in HTML
+html = re.sub(r'<div class="igp-grid">.*?</div>\s*</div>\s*</div>\s*</section>', 
+              f'<div class="igp-grid">{igp_grid_html}\n      </div>\n    </div>\n  </div>\n</section>', html, flags=re.DOTALL)
+
+# Generate Post Indicator
+indicator_html = ""
+for idx, p in enumerate(posts_data):
+    cls = "pi-item active" if idx == 0 else "pi-item"
+    indicator_html += f'<div class="{cls}" data-idx="{idx}" onclick="goToPost({idx})">{p["id"]}</div>'
+    if idx < len(posts_data) - 1:
+        indicator_html += '\n    <div class="pi-sep">–</div>\n    '
+html = re.sub(r'<div class="post-indicator" id="postIndicator">.*?</div>', f'<div class="post-indicator" id="postIndicator">\n    {indicator_html}\n  </div>', html, flags=re.DOTALL)
+
+# Generate Main Posts
+main_posts_html = ""
+for p in posts_data:
+    if 'slides' in p:
+        slides_html = ""
+        for s in p['slides']:
+            slides_html += f'<div class="ig-slide"><img src="{p["folder"]}/{s}" loading="lazy" decoding="async"></div>\n            '
+        media_html = f"""<div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('{p['id']}')">
+          <div class="ig-track" id="itrack-{p['id']}">
+            {slides_html}
+          </div>
+          <div class="ig-dots" id="idots-{p['id']}"></div>
+          <button class="ig-arrow prev" onclick="igSlide('{p['id']}', -1)">‹</button>
+          <button class="ig-arrow next" onclick="igSlide('{p['id']}', 1)">›</button>
+        </div>"""
+    else:
+        media_html = f"""<div class="ig-carousel" style="cursor:pointer" onclick="openLightbox('{p['id']}')">
+          {p['media']}
+        </div>"""
+
+    main_posts_html += f"""
+<!-- ══ POST {p['id']} ══ -->
+<section class="post-section" id="sec-{p['id']}" style="position:relative;">
+  <div class="post-split">
+    <div class="reveal">
+      <div class="post-num-badge"><div class="pnb-dot">{p['id']}</div> Post {p['id']}</div>
+      <div class="ig-phone">
+        <div class="ig-bar">
+          <div class="ig-ava"><img src="foto.webp" alt="Gabriela Saueressig"></div>
+          <div><div class="ig-handle">gabrielasaueressig_</div></div>
+          <div class="ig-type" id="type-{p['id']}">{p['type']}</div>
+        </div>
+        {media_html}
+        <div class="ig-foot">
+          <p class="ig-cap"><strong>gabrielasaueressig_</strong> Planejamento de conteúdo em aprovação.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post-panel reveal" style="transition-delay:.1s">
+      <div class="post-head">
+        <div class="post-eyebrow">
+          <span id="eyebrow-{p['id']}">{p['type']}</span>
+          <span class="v3-badge">v1</span>
+        </div>
+        <h3 class="post-title">Peça 0{p['id']} — <em>{p['title']}</em></h3>
+        <div class="sb sb-none" id="badge-{p['id']}"><span class="sbp"></span>Aguardando</div>
+      </div>
+
+      <div class="blk-label">Legenda</div>
+      <div class="caption-blk">
+        <span class="handle">gabrielasaueressig_</span> {p['caption']}
+      </div>
+
+    </div>
+  </div>
+  <div class="post-actions-below">
+    <div class="reject-alert" id="ralert-{p['id']}">⚠ Para reprovar, adicione um comentário primeiro.</div>
+    <div class="actions">
+      <div class="actions-left">
+        <button class="abtn btn-ap" id="ba-{p['id']}" onclick="event.stopPropagation(); setStatus('{p['id']}','approved')">✓ Aprovar</button>
+        <button class="abtn btn-rj" id="br-{p['id']}" onclick="event.stopPropagation(); setStatus('{p['id']}','rejected')">✎ Reprovar</button>
+        <button class="abtn btn-lt" id="bl-{p['id']}" onclick="event.stopPropagation(); openReviewModal('{p['id']}')">⏳ Revisar</button>
+      </div>
+      <button class="abtn btn-cm" id="bc-{p['id']}" onclick="event.stopPropagation(); openCommentsModal('{p['id']}')">💬 Comentários</button>
+    </div>
+  </div>
+</section>
+"""
+
+html = re.sub(r'<div class="posts-horizontal-track" id="mainPostsTrack">.*?</div>\s*</section>', f'<div class="posts-horizontal-track" id="mainPostsTrack">\n{main_posts_html}\n</div>\n</section>', html, flags=re.DOTALL)
+
+# Generate Hidden Comments Data
+hidden_comments_html = ""
+for i in range(1, 9):
+    hidden_comments_html += f'<div id="comments-{i}"></div>\n  '
+html = re.sub(r'<div id="hiddenCommentsData" style="display:none">.*?</div>', f'<div id="hiddenCommentsData" style="display:none">\n  {hidden_comments_html}\n</div>', html, flags=re.DOTALL)
+
+
+# Generate Downloads Grid
+downloads_grid_html = """
+      <a href="#" class="dl-card dl-all">
+        <div class="dl-icon">📁</div>
+        <div class="dl-info">
+          <div class="dl-label">Todos os conteúdos</div>
+          <div class="dl-sub">Pasta completa</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>
+"""
+for p in posts_data:
+    downloads_grid_html += f"""
+      <a href="#" class="dl-card">
+        <div class="dl-num">0{p['id']}</div>
+        <div class="dl-info">
+          <div class="dl-label">Post {p['id']}</div>
+          <div class="dl-sub">Baixar Arquivo</div>
+        </div>
+        <div class="dl-arrow">↗</div>
+      </a>"""
+
+html = re.sub(r'<div class="downloads-grid">.*?</div>\s*</div>\s*</section>', f'<div class="downloads-grid">{downloads_grid_html}\n    </div>\n  </div>\n</section>', html, flags=re.DOTALL)
+
+
+with open('/Users/luxfajah/gabriela/junho.html', 'w', encoding='utf-8') as f:
+    f.write(html)
