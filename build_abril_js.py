@@ -1,6 +1,6 @@
 import re
 
-with open('/Users/luxfajah/gabriela/junho.js', 'r', encoding='utf-8') as f:
+with open('/Users/luxfajah/gabriela/maio.js', 'r', encoding='utf-8') as f:
     js = f.read()
 
 # Replace post numbers: 8 -> 6

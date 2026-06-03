@@ -1,17 +1,17 @@
 import re
 import os
 
-with open('/Users/luxfajah/gabriela/junho.html', 'r', encoding='utf-8') as f:
+with open('/Users/luxfajah/gabriela/maio.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
 # Basic replacements
-html = html.replace('junho.css?v=2.2', 'junho.css?v=2.2') # keep using junho.css, or maybe style.css. I will just keep junho.css as it is the layout driver.
-html = html.replace('junho.js', 'abril.js')
+html = html.replace('maio.css?v=2.2', 'maio.css?v=2.2') # keep using maio.css, or maybe style.css. I will just keep maio.css as it is the layout driver.
+html = html.replace('maio.js', 'abril.js')
 
 html = html.replace('0 de 8 aprovados', '0 de 6 aprovados')
 html = html.replace('8 posts', '6 posts')
-html = html.replace('Planejamento de conteúdo · Junho 2026', 'Planejamento de conteúdo · Abril 2026')
-html = html.replace('Planejamento · Junho 2026', 'Planejamento · Abril 2026')
+html = html.replace('Planejamento de conteúdo · Maio 2026', 'Planejamento de conteúdo · Abril 2026')
+html = html.replace('Planejamento · Maio 2026', 'Planejamento · Abril 2026')
 html = html.replace('8 posts estratégicos', '6 posts estratégicos')
 html = html.replace('id="f-pending">8<', 'id="f-pending">6<')
 

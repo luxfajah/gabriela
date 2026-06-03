@@ -1,19 +1,19 @@
 import re
 import os
 
-with open('/Users/luxfajah/gabriela/junho.html', 'r', encoding='utf-8') as f:
+with open('/Users/luxfajah/gabriela/maio.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
 # Basic replacements
 html = html.replace('Juliana Ximendes', 'Gabriela Saueressig')
 html = html.replace('juximendes', 'gabrielasaueressig_')
-html = html.replace('style.css?v=2.2', 'junho.css?v=2.2')
-html = html.replace('script.js', 'junho.js')
+html = html.replace('style.css?v=2.2', 'maio.css?v=2.2')
+html = html.replace('script.js', 'maio.js')
 html = html.replace('logos/Foto de perfil.jpg', 'foto.webp')
 html = html.replace('0 de 6 aprovados', '0 de 8 aprovados')
 html = html.replace('6 posts', '8 posts')
-html = html.replace('Planejamento de conteúdo · 2026', 'Planejamento de conteúdo · Junho 2026')
-html = html.replace('Planejamento · 2026', 'Planejamento · Junho 2026')
+html = html.replace('Planejamento de conteúdo · 2026', 'Planejamento de conteúdo · Maio 2026')
+html = html.replace('Planejamento · 2026', 'Planejamento · Maio 2026')
 html = html.replace('6 posts estratégicos', '8 posts estratégicos')
 html = html.replace('id="f-pending">6<', 'id="f-pending">8<')
 
@@ -33,7 +33,7 @@ posts_data = [
     {
         'id': '2', 'title': 'Post 2', 'type': 'Carrossel', 'caption': 'Coisas que ouvimos por aí que não aguento mais…',
         'slides': ['Post 2 - 1.png', 'Post 2 - 2.png', 'Post 2 - 3.png', 'Post 2 - 4.png', 'Post 2 - 5_1.png'],
-        'folder': 'Junho/Post 2'
+        'folder': 'Maio/Post 2'
     },
     {
         'id': '3', 'title': 'Post 3', 'type': 'Vídeo', 'caption': '“Meu Deus, eu tenho HPV, que vergonha!”',
@@ -43,7 +43,7 @@ posts_data = [
     {
         'id': '4', 'title': 'Post 4', 'type': 'Carrossel', 'caption': 'Posso ter relação depois de uma cirurgia ginecológica?',
         'slides': ['Post 4 - 1.png', 'Post 4 - 2.png', 'Post 4 - 3.png', 'Post 4 - 4.png'],
-        'folder': 'Junho/Post 4'
+        'folder': 'Maio/Post 4'
     },
     {
         'id': '5', 'title': 'Post 5', 'type': 'Carrossel', 'caption': 'Espaço para Gabi: Dúvida comum do consultório',
@@ -53,12 +53,12 @@ posts_data = [
     {
         'id': '6', 'title': 'Post 6', 'type': 'Carrossel', 'caption': 'Mioma: operar ou não operar?',
         'slides': ['Post 6 - 1.png', 'Post 6 - 2.png', 'Post 6 - 3.png', 'Post 6 - 4.png', 'Post 6 - 5.png', 'Post 6 -6.png'],
-        'folder': 'Junho/Post 6'
+        'folder': 'Maio/Post 6'
     },
     {
         'id': '7', 'title': 'Post 7', 'type': 'Imagem', 'caption': 'Investimentos para a sua saúde em 2026',
-        'media': '<img src="Junho/Post 7/Post 7.png" style="width:100%; height:auto; display:block;" alt="Post 7" loading="lazy">',
-        'grid_media': '<img src="Junho/Post 7/Post 7.png" alt="Post 7" loading="lazy" decoding="async">'
+        'media': '<img src="Maio/Post 7/Post 7.png" style="width:100%; height:auto; display:block;" alt="Post 7" loading="lazy">',
+        'grid_media': '<img src="Maio/Post 7/Post 7.png" alt="Post 7" loading="lazy" decoding="async">'
     },
     {
         'id': '8', 'title': 'Post 8', 'type': 'Vídeo', 'caption': 'Quanto tempo vou ficar parada depois da cirurgia?',
@@ -198,5 +198,5 @@ for p in posts_data:
 html = re.sub(r'<div class="downloads-grid">.*?</div>\s*</div>\s*</section>', f'<div class="downloads-grid">{downloads_grid_html}\n    </div>\n  </div>\n</section>', html, flags=re.DOTALL)
 
 
-with open('/Users/luxfajah/gabriela/junho.html', 'w', encoding='utf-8') as f:
+with open('/Users/luxfajah/gabriela/maio.html', 'w', encoding='utf-8') as f:
     f.write(html)

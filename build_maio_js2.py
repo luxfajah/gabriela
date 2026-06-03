@@ -1,16 +1,16 @@
 import re
 
-with open('/Users/luxfajah/gabriela/junho.js', 'r', encoding='utf-8') as f:
+with open('/Users/luxfajah/gabriela/maio.js', 'r', encoding='utf-8') as f:
     js = f.read()
 
 lb_sources_new = """const lbSources = {
     '1': [],
-    '2': ['Junho/Post 2/Post 2 - 1.png', 'Junho/Post 2/Post 2 - 2.png', 'Junho/Post 2/Post 2 - 3.png', 'Junho/Post 2/Post 2 - 4.png', 'Junho/Post 2/Post 2 - 5_1.png'],
+    '2': ['Maio/Post 2/Post 2 - 1.png', 'Maio/Post 2/Post 2 - 2.png', 'Maio/Post 2/Post 2 - 3.png', 'Maio/Post 2/Post 2 - 4.png', 'Maio/Post 2/Post 2 - 5_1.png'],
     '3': [],
-    '4': ['Junho/Post 4/Post 4 - 1.png', 'Junho/Post 4/Post 4 - 2.png', 'Junho/Post 4/Post 4 - 3.png', 'Junho/Post 4/Post 4 - 4.png'],
+    '4': ['Maio/Post 4/Post 4 - 1.png', 'Maio/Post 4/Post 4 - 2.png', 'Maio/Post 4/Post 4 - 3.png', 'Maio/Post 4/Post 4 - 4.png'],
     '5': [],
-    '6': ['Junho/Post 6/Post 6 - 1.png', 'Junho/Post 6/Post 6 - 2.png', 'Junho/Post 6/Post 6 - 3.png', 'Junho/Post 6/Post 6 - 4.png', 'Junho/Post 6/Post 6 - 5.png', 'Junho/Post 6/Post 6 -6.png'],
-    '7': ['Junho/Post 7/Post 7.png'],
+    '6': ['Maio/Post 6/Post 6 - 1.png', 'Maio/Post 6/Post 6 - 2.png', 'Maio/Post 6/Post 6 - 3.png', 'Maio/Post 6/Post 6 - 4.png', 'Maio/Post 6/Post 6 - 5.png', 'Maio/Post 6/Post 6 -6.png'],
+    '7': ['Maio/Post 7/Post 7.png'],
     '8': []
   };"""
 js = re.sub(r'const lbSources = \{.*?\n  \};\n', lb_sources_new + "\n", js, flags=re.DOTALL)
@@ -35,5 +35,5 @@ const projectData = {
 """
 js = re.sub(r'/\* ══ Project Viewer.*?\nconst projectData = \{.*?\n\};\n', project_data_new, js, flags=re.DOTALL)
 
-with open('/Users/luxfajah/gabriela/junho.js', 'w', encoding='utf-8') as f:
+with open('/Users/luxfajah/gabriela/maio.js', 'w', encoding='utf-8') as f:
     f.write(js)
