@@ -203,7 +203,7 @@ window.addEventListener('load', () => {
     div.className = 'comment-item';
     
     // Define o nome de exibição baseado no usuário logado
-    const displayName = (currentUser === 'ximenas@duasmaos.com.br' || currentUser === 'ximenas' || currentUser === 'juliana@duasmaos.com.br' || currentUser === 'juliana') ? 'Juliana Ximendes' : 'Duas Mãos (Admin)';
+    const displayName = (currentUser === 'gabriela' || currentUser === 'gabriela@duasmaos.com.br') ? 'Gabriela Saueressig' : 'Duas Mãos (Admin)';
     
     div.innerHTML = `<div class="c-meta"><strong>${displayName}</strong> · ${ts}</div><div class="c-text">${txt}</div>`;
     cl.appendChild(div);
@@ -504,7 +504,7 @@ window.addEventListener('load', () => {
     const meta=postMeta[postId]||{};
     const cap=document.getElementById('lbCaption');
     if(cap) {
-      cap.innerHTML=`<strong>juximendes</strong> ${meta.caption||''}`;
+      cap.innerHTML=`<strong>gabrielasaueressig_</strong> ${meta.caption||''}`;
     }
     
     const cardsEl=document.getElementById('lbCards');
