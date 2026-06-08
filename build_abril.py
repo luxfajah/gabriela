@@ -18,12 +18,12 @@ html = html.replace('id="f-pending">8<', 'id="f-pending">6<')
 posts_data = [
     {
         'id': '1', 'title': 'Post 1', 'type': 'Carrossel', 'caption': 'Dor na relação não é normal!<br>Com avaliação adequada, é possível entender a causa e traçar o melhor tratamento pra cada caso.', 
-        'slides': ['Post 1 - 1.webp', 'Post 1 - 2.webp', 'Post 1 - 3.webp', 'Post 1 - 4.webp', 'Post 1 - 5.webp', 'Post 1 - 6.webp', 'Post 1 - 7.webp'],
+        'slides': ['Post 1 - 1.webp', 'Post 1 - 2.webp', 'Post 1 - 3.webp', 'Post 1 - 4.webp', 'Post 1 - 5.webp'],
         'folder': 'posts abril'
     },
     {
         'id': '2', 'title': 'Post 2', 'type': 'Carrossel', 'caption': 'É normal sair um cheiro "sujo"...',
-        'slides': ['Post 2 - 1.webp', 'Post 2 - 2.webp', 'Post 2 - 3.webp', 'Post 2 - 4.webp'],
+        'slides': ['Post 2 - 1.webp', 'Post 2 - 2.webp', 'Post 2 - 3.webp', 'Post 2 - 4.webp', 'Post 2 - 5.webp', 'Post 2 - 6.webp'],
         'folder': 'posts abril'
     },
     {
@@ -42,9 +42,9 @@ posts_data = [
         'folder': 'posts abril'
     },
     {
-        'id': '6', 'title': 'Post 6', 'type': 'Carrossel', 'caption': 'Mioma e cirurgias',
-        'slides': ['Post 6 - 1.webp', 'Post 6 - 2.webp', 'Post 6 - 3.webp', 'Post 6 - 4.webp', 'Post 6 - 5.webp'],
-        'folder': 'posts abril'
+        'id': '6', 'title': 'Post 6', 'type': 'Imagem', 'caption': 'Mioma e cirurgias',
+        'media': '<img src="posts abril/Post 6.webp" style="width:100%; height:auto; display:block;" alt="Post 6" loading="lazy">',
+        'grid_media': '<img src="posts abril/Post 6.webp" alt="Post 6" loading="lazy" decoding="async">'
     }
 ]
 
@@ -74,7 +74,7 @@ for idx, p in enumerate(posts_data):
     indicator_html += f'<div class="{cls}" data-idx="{idx}" onclick="goToPost({idx})">{p["id"]}</div>'
     if idx < len(posts_data) - 1:
         indicator_html += '\n    <div class="pi-sep">–</div>\n    '
-html = re.sub(r'<div class="post-indicator" id="postIndicator">.*?</div>', f'<div class="post-indicator" id="postIndicator">\n    {indicator_html}\n  </div>', html, flags=re.DOTALL)
+html = re.sub(r'<div class="post-indicator" id="postIndicator">.*?(?=<div class="posts-horizontal-track")', f'<div class="post-indicator" id="postIndicator">\n    {indicator_html}\n  </div>\n\n  ', html, flags=re.DOTALL)
 
 # Generate Main Posts
 main_posts_html = ""
