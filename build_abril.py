@@ -154,8 +154,18 @@ for i in range(1, 7):
 html = re.sub(r'<div id="hiddenCommentsData" style="display:none">.*?</div>', f'<div id="hiddenCommentsData" style="display:none">\n  {hidden_comments_html}\n</div>', html, flags=re.DOTALL)
 
 # Generate Downloads Grid
-downloads_grid_html = """
-      <a href="#" class="dl-card dl-all">
+drive_links = {
+    'all': 'https://drive.google.com/drive/folders/17nR8IvTXtscckzeV1lMqyBKxReRzcedL?usp=drive_link',
+    '1': 'https://drive.google.com/drive/folders/18rAtvQA3T2z6Kyvlpq2Lb7oK-dn19wjG?usp=drive_link',
+    '2': 'https://drive.google.com/drive/folders/1Pt_fwmAptaPHoZXvNvA8yJ-wBd1tsPXc?usp=drive_link',
+    '3': 'https://drive.google.com/drive/folders/1gVWqq8uWxirltpAQr5J9RLjQF0v_3aBM?usp=drive_link',
+    '4': 'https://drive.google.com/drive/folders/1TGL6RRwm7hs58Adu4t56Z2TokpL8ZF_m?usp=drive_link',
+    '5': 'https://drive.google.com/drive/folders/1xmrdJJraiad9PMnRVBq7Eb-ovjl4pCZ-?usp=drive_link',
+    '6': 'https://drive.google.com/drive/folders/1lCsqMldta5qx3wMwyhf2ziT1IEpzWaOC?usp=drive_link'
+}
+
+downloads_grid_html = f"""
+      <a href="{drive_links['all']}" class="dl-card dl-all" target="_blank">
         <div class="dl-icon">📁</div>
         <div class="dl-info">
           <div class="dl-label">Todos os conteúdos</div>
@@ -165,8 +175,9 @@ downloads_grid_html = """
       </a>
 """
 for p in posts_data:
+    post_link = drive_links.get(p['id'], '#')
     downloads_grid_html += f"""
-      <a href="#" class="dl-card">
+      <a href="{post_link}" class="dl-card" target="_blank">
         <div class="dl-num">0{p['id']}</div>
         <div class="dl-info">
           <div class="dl-label">Post {p['id']}</div>
