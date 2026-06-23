@@ -6,6 +6,7 @@ node_modules/
 # Local development files (não necessários no Vercel)
 server.py
 responses.json
+responses_*.json
 pdf_dump.txt
 utils/
 generate.py

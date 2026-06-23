@@ -1,0 +1,189 @@
+{
+  "client": {
+    "name": "Gabriela Saueressig",
+    "username": "gabrielasaueressig_",
+    "profile_pic": "foto.webp",
+    "bio": "Ginecologia Geral e Cirurgia Ginecológica<br>CRM 47527 • RQE 44082 • RQE 46316<br>Laparoscopia • Histeroscopia • Cirurgia Minimamente Invasiva<br>Porto Alegre/RS",
+    "link": "https://linktr.ee/ginecogabrielasaueressig",
+    "stats": {
+      "posts": "192",
+      "followers": "2.503",
+      "following": "1.982"
+    },
+    "followed_by_text": "Seguido(a) por <strong>tthacy</strong>, <strong>dduasmaos</strong> e outras 2 pessoas",
+    "followed_by_images": ["tthacy.webp", "duasmaos.webp"]
+  },
+  "metadata": {
+    "campaign_focus": "Apresentação de conteúdos estratégicos de posicionamento e portfólio",
+    "deadline": "Em aberto — responda quando preferir",
+    "month_name": "Abril"
+  },
+  "downloads": {
+    "full_folder": "https://drive.google.com/drive/folders/17nR8IvTXtscckzeV1lMqyBKxReRzcedL?usp=drive_link",
+    "items": [
+      {
+        "id": "1",
+        "title": "Post 1 — Carrossel",
+        "link": "https://drive.google.com/drive/folders/18rAtvQA3T2z6Kyvlpq2Lb7oK-dn19wjG?usp=drive_link"
+      },
+      {
+        "id": "2",
+        "title": "Post 2 — Carrossel",
+        "link": "https://drive.google.com/drive/folders/1Pt_fwmAptaPHoZXvNvA8yJ-wBd1tsPXc?usp=drive_link"
+      },
+      {
+        "id": "3",
+        "title": "Post 3 — Imagem Única",
+        "link": "https://drive.google.com/drive/folders/1gVWqq8uWxirltpAQr5J9RLjQF0v_3aBM?usp=drive_link"
+      },
+      {
+        "id": "4",
+        "title": "Post 4 — Carrossel",
+        "link": "https://drive.google.com/drive/folders/1TGL6RRwm7hs58Adu4t56Z2TokpL8ZF_m?usp=drive_link"
+      },
+      {
+        "id": "5",
+        "title": "Post 5 — Carrossel",
+        "link": "https://drive.google.com/drive/folders/1xmrdJJraiad9PMnRVBq7Eb-ovjl4pCZ-?usp=drive_link"
+      },
+      {
+        "id": "6",
+        "title": "Post 6 — Imagem Única",
+        "link": "https://drive.google.com/drive/folders/1lCsqMldta5qx3wMwyhf2ziT1IEpzWaOC?usp=drive_link"
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "title": "Comece Aqui",
+      "cover": "destaque 1.jpg",
+      "color": "#d4c5b9"
+    },
+    {
+      "title": "Agende",
+      "cover": "destaque 2.jpg",
+      "color": "#b8a698"
+    }
+  ],
+  "profile_posts": [
+    { "id": "1", "image": "posts abril/Post 1 - 1.webp" },
+    { "id": "2", "image": "posts abril/Post 2 - 1.webp" },
+    { "id": "3", "image": "posts abril/Post 3.webp" },
+    { "id": "4", "image": "posts abril/Post 4 - 1.webp" },
+    { "id": "5", "image": "posts abril/Post 5 - 1.webp" },
+    { "id": "6", "image": "posts abril/Post 6.webp" }
+  ],
+  "approval_posts": [
+    {
+      "id": "1",
+      "type": "carousel",
+      "date": "06/04/2026",
+      "theme": "Topo de Funil",
+      "title": "Dor na relação",
+      "images": [
+        "posts abril/Post 1 - 1.webp",
+        "posts abril/Post 1 - 2.webp",
+        "posts abril/Post 1 - 3.webp",
+        "posts abril/Post 1 - 4.webp",
+        "posts abril/Post 1 - 5.webp"
+      ],
+      "copy": [
+        "Dor na relação não é algo que você “tem que aprender a lidar”!",
+        "Dor durante a relação pode ter diferentes causas:<br><br>– infecções<br>– endometriose<br>– vaginismo<br>– fatores emocionais",
+        "Mas muitas mulheres aprendem, em silêncio, adaptar o corpo ao desconforto. E, aos poucos, o que deveria ser um momento de conexão, vira algo evitado, tolerado ou até temido.",
+        "Com avaliação adequada, é possível entender a causa e definir o melhor caminho para o seu caso."
+      ],
+      "caption": "Dor na relação ainda é um tema pouco falado e, muitas vezes, normalizado, mas sentir dor não é algo que você precisa aceitar ou aprender a conviver. Na prática, esse sintoma pode ter diferentes causas, e cada uma delas precisa de uma avaliação cuidadosa. Se isso faz parte da sua realidade, vale investigar."
+    },
+    {
+      "id": "2",
+      "type": "carousel",
+      "date": "09/04/2026",
+      "theme": "Meio de Funil",
+      "title": "Mitos da saúde íntima",
+      "images": [
+        "posts abril/Post 2 - 1.webp",
+        "posts abril/Post 2 - 2.webp",
+        "posts abril/Post 2 - 3.webp",
+        "posts abril/Post 2 - 4.webp",
+        "posts abril/Post 2 - 5.webp",
+        "posts abril/Post 2 - 6.webp"
+      ],
+      "copy": [
+        "Coisas que ouvimos por aí que não aguento mais…<br>“Cheiro forte é sujeira”",
+        "Não é. A vagina tem cheiro. Isso é normal, é fisiológico e varia ao longo do ciclo. O que muda o cheiro de forma intensa e de forma persistente pode ser sinal de desequilíbrio (vaginose bacteriana, por exemplo) e pede investigação",
+        "Calcinha úmida, com corrimento, é completamente normal e vai mudando ao longo do mês. A vagina produz muco, igual o nariz, o ouvido, a boca..",
+        "“Quanto mais se usa, mais alarga”",
+        "A vagina é um canal muscular elástico. Ela se adapta e retorna. Não existe \"alargar\" por uso. Não existe vagina \"gasta\". Isso é uma construção pra envergonhar mulher e não tem nenhuma base anatômica.",
+        "O problema de todos esses mitos é o mesmo: eles fazem a mulher sentir que o próprio corpo é sujo, defeituoso ou inadequado. E aí tu compra produto que não precisa, sente vergonha de sintoma que precisava contar pra médica e normaliza dor que tinha tratamento."
+      ],
+      "caption": "É normal sair um cheiro \"sujo\"..."
+    },
+    {
+      "id": "3",
+      "type": "single",
+      "date": "14/04/2026",
+      "theme": "Meio de Funil",
+      "title": "A menstruação limpa o corpo?",
+      "images": [
+        "posts abril/Post 3.webp"
+      ],
+      "copy": [
+        "Ser médica na era das “soluções rápidas” não é fácil, mas eu AMO educar sobre o que é seguro e baseado em estudos sólidos e confiáveis!"
+      ],
+      "caption": "A menstruação limpa o corpo?"
+    },
+    {
+      "id": "4",
+      "type": "carousel",
+      "date": "16/04/2026",
+      "theme": "Saúde Íntima",
+      "title": "Candidíase de repetição",
+      "images": [
+        "posts abril/Post 4 - 1.webp",
+        "posts abril/Post 4 - 2.webp",
+        "posts abril/Post 4 - 3.webp",
+        "posts abril/Post 4 - 4.webp"
+      ],
+      "copy": [
+        "Candidíase de repetição é um sinal de que algo no seu corpo está em desequilíbrio e não olhar para isso é o que faz ela voltar."
+      ],
+      "caption": "Candidíase de repetição"
+    },
+    {
+      "id": "5",
+      "type": "carousel",
+      "date": "21/04/2026",
+      "theme": "Topo de Funil",
+      "title": "Vacina HPV",
+      "images": [
+        "posts abril/Post 5 - 1.webp",
+        "posts abril/Post 5 - 2.webp",
+        "posts abril/Post 5 - 3.webp",
+        "posts abril/Post 5 - 4.webp",
+        "posts abril/Post 5 - 5.webp"
+      ],
+      "copy": [
+        "Depois de já ter tido relação sexual, vale a pena fazer a vacina do HPV?",
+        "Existem mais de 100 tipos de vírus do HPV, e é muito improvável que você já tenha sido exposta a todos eles mesmo após iniciar a atividade sexual.",
+        "A vacina vai te proteger contra os tipos mais graves de HPV, aqueles que causam câncer, além de evitar reinfecções...",
+        "Por isso, a minha recomendação é clara: se você estiver dentro da faixa indicada, vale sim considerar a vacinação como parte do seu cuidado com a saúde."
+      ],
+      "caption": "Vacina HPV"
+    },
+    {
+      "id": "6",
+      "type": "single",
+      "date": "23/04/2026",
+      "theme": "Topo de Funil",
+      "title": "Mioma e cirurgias",
+      "images": [
+        "posts abril/Post 6.webp"
+      ],
+      "copy": [
+        "Indicar cirurgia sem necessidade é tão inadequado quanto deixar de indicar quando ela é necessária."
+      ],
+      "caption": "Mioma e cirurgias"
+    }
+  ]
+}

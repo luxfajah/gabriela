@@ -8,11 +8,15 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
+  const { month } = req.query;
+  const cleanMonth = (month === 'abril' || month === 'maio') ? month : 'maio';
+  const redisKey = `gabriela_responses_${cleanMonth}`;
+
   const client = createClient({ url: process.env.REDIS_URL });
 
   try {
     await client.connect();
-    await client.set('gabriela_responses', JSON.stringify(req.body));
+    await client.set(redisKey, JSON.stringify(req.body));
     await client.disconnect();
     res.status(200).json({ status: 'success' });
   } catch (e) {

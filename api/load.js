@@ -3,11 +3,15 @@ import { createClient } from 'redis';
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
 
+  const { month } = req.query;
+  const cleanMonth = (month === 'abril' || month === 'maio') ? month : 'maio';
+  const redisKey = `gabriela_responses_${cleanMonth}`;
+
   const client = createClient({ url: process.env.REDIS_URL });
 
   try {
     await client.connect();
-    const raw = await client.get('gabriela_responses');
+    const raw = await client.get(redisKey);
     await client.disconnect();
     if (raw) {
       const parsed = JSON.parse(raw);

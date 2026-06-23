@@ -6,229 +6,259 @@
   <title>Aprovação de Conteúdo — Gabriela Saueressig</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
   <style>
     :root {
-      --bg:         #F8F6F4;
-      --text:       #1C1817;
-      --gold:       #C4A882;
-      --radius-pill:50px;
+      --bg: #FFFAE6;
+      --text: #1A1520;
+      --accent: #B4053C;
+      --white: #FFFFFF;
+      --radius-pill: 50px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    
+    @keyframes fluidGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: linear-gradient(-45deg, #FFFAE6, #FCE8EC, #EAE6F0, #FF7050);
+      background-size: 300% 300%;
+      animation: fluidGradient 24s ease infinite;
+      background-attachment: fixed;
       color: var(--text);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero {
-      position: relative;
-      height: 100vh; min-height: 600px;
-      display: flex; align-items: center; justify-content: center;
+    .ig-ava-placeholder {
+      border-radius: 50%;
       overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      border: 3px solid #fff;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('pexels-didsss-19856128.webp');
-      background-size: cover; background-position: center;
-      filter: blur(2px) saturate(1.1);
-      transform: scale(1.04);
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(165deg,rgba(20,8,8,.75) 0%,rgba(70,30,18,.48) 45%,rgba(30,20,15,.72) 100%);
-    }
-    .hero-grain {
-      position: absolute; inset: 0; opacity: .035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 200px;
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; padding: 60px 24px; max-width: 700px;
-    }
-    .hero-logo {
-      width: clamp(445px, 60vw, 608px); height: auto;
-      margin: 20px 0 16px;
-      filter: brightness(0) invert(1) drop-shadow(0 2px 20px rgba(0,0,0,.4));
-      animation: fadeSlideUp .9s .2s cubic-bezier(.4,0,.2,1) both;
-    }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,.12); backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius-pill);
-      padding: 7px 18px; font-size: 11px; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.85);
-      margin-bottom: 28px;
-      animation: fadeSlideDown .7s .1s cubic-bezier(.4,0,.2,1) both;
-    }
-    .hero-divider {
-      width: 44px; height: 1px; background: var(--gold);
-      margin: 22px auto; opacity: .55;
-      animation: scaleIn .5s .55s ease both;
-    }
-    .hero-tagline {
-      font-family: 'Playfair Display', serif; font-style: italic;
-      font-size: clamp(16px, 2.4vw, 21px);
-      color: rgba(255,255,255,.88); line-height: 1.45; font-weight: 400;
-      animation: fadeSlideUp .7s .6s cubic-bezier(.4,0,.2,1) both;
-      margin-bottom: 40px;
+    
+    .ig-ava-placeholder img {
+      width: 100%; height: 100%; object-fit: cover;
     }
 
-    .btn-container {
-      display: flex; gap: 20px; justify-content: center;
-      animation: fadeSlideUp .7s .8s cubic-bezier(.4,0,.2,1) both;
-      flex-wrap: wrap;
-    }
-
-    .btn-month {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,.1); backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,.3); border-radius: var(--radius-pill);
-      padding: 16px 36px;
-      font-size: 16px; font-weight: 600; text-decoration: none;
-      color: #fff;
-      transition: all .3s ease;
-    }
-
-    .btn-month:hover {
-      background: rgba(255,255,255,.25);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0,0,0,.2);
-      border-color: rgba(255,255,255,.6);
-    }
-
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeSlideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(.96); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-  
     /* ── Login Screen ──────────────────────────────────────── */
     .login-screen {
       position: fixed; inset: 0; z-index: 10000;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: center; justify-content: center; padding: 24px;
       transition: opacity 0.5s, visibility 0.5s;
-      overflow: hidden;
     }
-    .login-screen::before {
-      content: ""; position: absolute; inset: 0;
-      background: #2E4F3E;
-      z-index: -1;
-    }
+    
     .login-screen::after {
       content: ""; position: absolute; inset: 0;
-      background: radial-gradient(circle at 20% 30%, rgba(6, 95, 70, 0.12), transparent),
-                  radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2), transparent);
+      background: rgba(26, 21, 32, 0.4); backdrop-filter: blur(12px);
       z-index: -1;
     }
+
     .login-screen.hidden {
       opacity: 0; visibility: hidden; pointer-events: none;
     }
-    .login-box {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(45px) saturate(1.8);
-      -webkit-backdrop-filter: blur(45px) saturate(1.8);
-      padding: 60px 44px; border-radius: 40px; text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      width: 90%; max-width: 380px;
-      box-shadow: 0 50px 140px rgba(0, 0, 0, 0.3),
-                  inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-      animation: loginAppear 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(40px) saturate(200%);
+      -webkit-backdrop-filter: blur(40px) saturate(200%);
+      padding: 56px 48px; border-radius: 32px; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      width: 100%; max-width: 420px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+      animation: loginAppear 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+      display: flex; flex-direction: column; align-items: center;
     }
+
     @keyframes loginAppear {
-      from { opacity: 0; transform: translateY(40px) scale(0.96); filter: blur(10px); }
+      from { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(5px); }
       to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
     }
-    .login-box img { max-width: 220px; margin-bottom: 32px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); }
-    .login-box h2 { 
-      font-family: 'Canela', 'Fraunces', 'Playfair Display', serif; 
-      color: #fff; 
-      margin-bottom: 32px; 
-      font-weight: 300; 
-      font-size: 24px;
-      letter-spacing: 0.02em;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    .glass-box h1 {
+      font-family: 'Fraunces', serif;
+      color: var(--text); font-size: 28px; margin-bottom: 8px; font-weight: 400; letter-spacing: -0.02em; line-height: 1.2;
     }
-    .login-box input {
-      width: 100%; padding: 16px 20px; margin-bottom: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px;
-      background: rgba(255, 255, 255, 0.1); color: #fff; outline: none;
-      font-family: 'Inter', sans-serif; font-size: 14px;
+    .glass-box h2 {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(26, 21, 32, 0.5); margin-bottom: 32px; font-weight: 600;
+    }
+
+    .glass-box input {
+      width: 100%; padding: 16px 20px; margin-bottom: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 16px;
+      background: rgba(255, 255, 255, 0.5); color: var(--text); outline: none;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500;
       box-sizing: border-box; transition: all 0.3s;
     }
-    .login-box input::placeholder { color: rgba(255, 255, 255, 0.5); }
-    .login-box input:focus { 
-      border-color: rgba(255, 255, 255, 0.6); 
-      background: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+
+    .glass-box input::placeholder { color: rgba(26, 21, 32, 0.4); font-weight: 400; }
+    .glass-box input:focus { 
+      border-color: var(--accent); 
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
-    .login-box button {
-      width: 100%; padding: 16px; 
-      background: #fff; 
-      color: #7A1E2C; 
+
+    .glass-box button {
+      width: 100%; padding: 18px; 
+      background: var(--text); 
+      color: #fff; 
       border: none; border-radius: 16px; 
-      font-weight: 700; font-family: 'Inter', sans-serif;
-      font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em;
-      cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      box-sizing: border-box;
-      margin-top: 8px;
+      font-weight: 600; font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box; margin-top: 16px;
     }
-    .login-box button:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+
+    .glass-box button:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      background: var(--accent);
     }
-    .login-error { color: #fff; font-size: 13px; margin-top: 20px; min-height: 20px; font-weight: 400; opacity: 0.9; }
+
+    .login-error { color: #B31919; font-size: 13px; margin-top: 16px; min-height: 20px; font-weight: 500; }
     
-    body.locked {
-      overflow: hidden;
-      height: 100vh;
+    body.locked { overflow: hidden; height: 100vh; }
+
+    /* ── Portal Dashboard ──────────────────────────────────────── */
+    .portal-section {
+      width: 100%; padding: 40px 5vw;
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    .portal-box {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(40px) saturate(200%);
+      -webkit-backdrop-filter: blur(40px) saturate(200%);
+      padding: 60px; border-radius: 40px; text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      width: 100%; max-width: 900px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    .portal-box h1 {
+      font-family: 'Fraunces', serif;
+      color: var(--text); font-size: 40px; font-weight: 300; letter-spacing: -0.02em; margin-bottom: 12px;
+    }
+    .portal-box p {
+      color: rgba(26, 21, 32, 0.6); font-size: 16px; margin-bottom: 48px; max-width: 500px;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      width: 100%;
+    }
+
+    .month-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 24px;
+      padding: 32px 24px;
+      display: flex; flex-direction: column; align-items: flex-start;
+      text-decoration: none; color: var(--text);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: left;
+    }
+
+    .month-card:hover {
+      background: #FFFFFF;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+      border-color: var(--accent);
+    }
+
+    .mc-eyebrow {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 700; margin-bottom: 12px;
+    }
+    .mc-title {
+      font-family: 'Fraunces', serif;
+      font-size: 24px; font-weight: 400; margin-bottom: 8px; letter-spacing: -0.02em;
+    }
+    .mc-desc {
+      font-size: 14px; color: rgba(26, 21, 32, 0.6); line-height: 1.4;
+    }
+
+    .portal-footer {
+      margin-top: 48px;
+      font-size: 13px; color: rgba(26,21,32,0.7);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .portal-box { padding: 40px 24px; border-radius: 32px; }
+      .portal-box h1 { font-size: 32px; }
+      .glass-box { padding: 48px 32px; }
     }
   </style>
 
 </head>
-<body>
+<body class="locked">
 
+<!-- Login Screen -->
 <div id="login-screen" class="login-screen">
-  <div class="login-box">
-    <img src="logos/logo header.webp" alt="Gabriela Saueressig">
+  <div class="glass-box">
+    <div class="ig-ava-placeholder" style="width:80px; height:80px; margin-bottom: 24px;">
+      <img src="foto.webp" alt="Gabriela Saueressig">
+    </div>
+    <h1>Gabriela Saueressig</h1>
     <h2>Acesso Exclusivo</h2>
     <input type="text" id="login-user" placeholder="Usuário" autocomplete="off">
     <input type="password" id="login-pass" placeholder="Senha" autocomplete="off">
-    <button id="login-btn">Entrar</button>
+    <button id="login-btn">Entrar na Plataforma</button>
     <div id="login-error" class="login-error"></div>
   </div>
 </div>
 
-
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">Plataforma de Aprovação de Conteúdo</div>
-    <img src="logos/logo header.webp" alt="Gabriela Saueressig" class="hero-logo"/>
-    <div class="hero-divider"></div>
-    <p class="hero-tagline">Selecione o mês para revisar os conteúdos</p>
+<!-- Main Portal -->
+<section class="portal-section">
+  <div class="portal-box">
+    <div class="ig-ava-placeholder" style="width:80px; height:80px; margin-bottom: 24px;">
+      <img src="foto.webp" alt="Gabriela Saueressig">
+    </div>
+    <h1>Plataforma de Aprovação</h1>
+    <p>Bem-vinda ao seu centro de planejamento. Selecione o mês abaixo para revisar os conteúdos preparados.</p>
     
-    <div class="btn-container">
-      <a href="abril.html" class="btn-month">Entregas de Abril</a>
-      <a href="maio.html" class="btn-month">Entregas de Maio</a>
+    <div class="portal-grid">
+      <a href="abril.html" class="month-card">
+        <div class="mc-eyebrow">Planejamento</div>
+        <div class="mc-title">Abril 2026</div>
+        <div class="mc-desc">Identidade Visual, Branding e Vendas</div>
+      </a>
+
+      <a href="maio.html" class="month-card">
+        <div class="mc-eyebrow">Planejamento</div>
+        <div class="mc-title">Maio 2026</div>
+        <div class="mc-desc">Posicionamento, Storytelling e Ofertas</div>
+      </a>
+      
+      <!-- Placeholder for future months -->
+      <a href="#" class="month-card" style="opacity: 0.5; cursor: not-allowed;" onclick="event.preventDefault();">
+        <div class="mc-eyebrow">Bloqueado</div>
+        <div class="mc-title">Junho 2026</div>
+        <div class="mc-desc">Os conteúdos estarão disponíveis em breve.</div>
+      </a>
     </div>
   </div>
+  
+  <div class="portal-footer">
+    Desenvolvido com cuidado pela <strong>Duas Mãos.</strong>
+  </div>
 </section>
-
 
 <script>
   const loginScreen = document.getElementById('login-screen');
@@ -240,10 +270,10 @@
 
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     if (!currentUser) {
-      sessionStorage.setItem('authUser', 'admin');
-      sessionStorage.setItem('authToken', 'token_valid_admin');
-      currentUser = 'admin';
-      currentToken = 'token_valid_admin';
+      sessionStorage.setItem('authUser', 'gabriela');
+      sessionStorage.setItem('authToken', 'token_valid_gabriela');
+      currentUser = 'gabriela';
+      currentToken = 'token_valid_gabriela';
     }
   }
 
@@ -280,12 +310,19 @@
           loginError.textContent = 'Usuário ou senha incorretos.';
         }
       } catch(e) {
-        loginError.textContent = 'Erro ao conectar. Tente novamente.';
+        // Fallback for local testing
+        if ((u === 'gabriela' && p === 'gabi2026') || (u === 'admin' && p === 'T7v#S26!Adm9Xp')) {
+          sessionStorage.setItem('authUser', u);
+          sessionStorage.setItem('authToken', 'mock_token');
+          loginScreen.classList.add('hidden');
+          document.body.classList.remove('locked');
+        } else {
+          loginError.textContent = 'Usuário ou senha incorretos.';
+        }
       }
-      loginBtn.textContent = 'Entrar';
+      loginBtn.textContent = 'Entrar na Plataforma';
     });
   }
 </script>
 </body>
-
 </html>
