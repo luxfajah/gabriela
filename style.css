@@ -659,9 +659,8 @@ body {
     .blk-label { font-size: 9px; margin-top: 12px; margin-bottom: 6px; }
     
     .actions { margin-top: 16px; display: flex; gap: 10px; }
-    
 
-
+    .post-num-badge {
       font-size: 10px; font-weight: 700; letter-spacing: .1em;
       text-transform: uppercase; color: var(--text); opacity: 0.6;
     }
@@ -2245,7 +2244,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
   display: flex;
   align-items: center;
   gap: 24px;
-  flex: 1;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
@@ -2296,11 +2295,15 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
 
 .dh-metrics {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   align-items: center;
-  flex: 2;
+  flex: 1;
   min-width: 0;
   justify-content: flex-end;
+}
+
+.dh-metrics .metric-box:first-child {
+  flex: 1.8;
 }
 
 .metric-box {
@@ -2358,15 +2361,16 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
 }
 
 .dh-progress-texts {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
 }
 
 .dh-prog-label {
   font-size: 12px;
   font-weight: 600;
   color: var(--text);
+  margin-right: 12px;
 }
 
 .dh-prog-count {
