@@ -362,8 +362,11 @@ window.addEventListener('load', () => {
   async function loadState(){
     try {
       const resp=await fetch('/api/load');
-      const data=await resp.json();
+      let data=await resp.json();
       if(!data||Object.keys(data).length===0){ updateCounts(); return; }
+      if (data.data) {
+        data = data.data;
+      }
       ['1','2','3','4','5','6','7','8'].forEach(id=>{
         const comments=data.comments?.[id]||[];
         const cl=document.getElementById(`comments-${id}`);
