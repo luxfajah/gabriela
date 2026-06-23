@@ -2077,12 +2077,12 @@ body.locked {
 .metric-box {
   background: rgba(0,0,0,0.15); border-radius: 20px; padding: 20px;
   display: flex; align-items: flex-start; gap: 12px; flex: 1;
-  white-space: nowrap; /* Impede a quebra de texto nas labels pequenas */
+  white-space: normal; /* Permite a quebra de texto nas labels */
 }
 
 .m-icon { font-size: 24px; }
 .m-text { display: flex; flex-direction: column; gap: 4px; }
-.m-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em; }
+.m-label { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
 .m-val { font-size: 13px; color: #fff; line-height: 1.4; font-weight: 500; }
 
 .dh-progress-box {
@@ -2245,6 +2245,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
   display: flex;
   align-items: center;
   gap: 24px;
+  flex: 1;
+  min-width: 0;
 }
 
 .dh-avatar {
@@ -2296,12 +2298,18 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
   display: flex;
   gap: 32px;
   align-items: center;
+  flex: 2;
+  min-width: 0;
+  justify-content: flex-end;
 }
 
 .metric-box {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 1;
+  min-width: 0;
+  white-space: normal;
 }
 
 .m-icon {
@@ -2327,18 +2335,21 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
   color: rgba(0,0,0,0.4);
   font-weight: 600;
   margin-bottom: 2px;
+  white-space: nowrap;
 }
 
 .m-val {
   font-size: 14px;
   color: var(--text);
   font-weight: 500;
+  white-space: normal;
 }
 
 .dh-progress-box {
   background: #fff;
   border-radius: 20px;
   padding: 16px 24px;
+  flex: 1;
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
