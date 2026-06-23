@@ -40,7 +40,7 @@
 
 body {
   font-family: var(--font-main);
-  background: linear-gradient(-45deg, #FFFAE6, #FCE8EC, #EAE6F0, #FF7050);
+  background: linear-gradient(-45deg, #c47c87, #8c424e, #B4053C, #1A1520);
   background-size: 300% 300%;
   animation: fluidGradient 20s ease infinite;
   background-attachment: fixed;
