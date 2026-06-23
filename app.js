@@ -201,7 +201,7 @@ function renderApp() {
         }
         
         let mediaHtml = '';
-        if (pp.image.startsWith('data:image/svg+xml')) {
+        if (pp.image.trim().startsWith('<svg')) {
           mediaHtml = pp.image; // inline SVG
         } else {
           mediaHtml = `<img src="${pp.image}" alt="Post ${idx+1}" loading="lazy" decoding="async">`;

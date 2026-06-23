@@ -2234,6 +2234,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
   border-radius: 32px;
   padding: 40px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 20px 40px rgba(0,0,0,0.05);
@@ -2295,10 +2296,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
 
 .dh-metrics {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   align-items: center;
   flex: 1;
-  min-width: 0;
+  min-width: 300px;
   justify-content: flex-end;
 }
 
@@ -2311,7 +2313,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div, button, input {
   align-items: center;
   gap: 12px;
   flex: 1;
-  min-width: 0;
+  min-width: 200px;
   white-space: normal;
 }
 
